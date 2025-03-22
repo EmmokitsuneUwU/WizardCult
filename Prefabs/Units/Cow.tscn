@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://v4ulr8i3dgfc"]
+
+[ext_resource type="Texture2D" uid="uid://dptecm57712is" path="res://Assets/Sprites/cow.png" id="1_jtfru"]
+[ext_resource type="Script" uid="uid://b55os75i84o0i" path="res://Scripts/cow.gd" id="1_p202w"]
+[ext_resource type="Texture2D" uid="uid://by2p6ukl3c3gl" path="res://Assets/SelectionIndicator.png" id="2_p202w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mssfx"]
+size = Vector2(72, 64)
+
+[node name="Cow" type="CharacterBody2D" groups=["Animal", "Unit"]]
+script = ExtResource("1_p202w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(12, -12)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("1_jtfru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, -8)
+shape = SubResource("RectangleShape2D_mssfx")
+
+[node name="SelectionIndicator" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(12, -8)
+scale = Vector2(2.75, 2.5)
+texture = ExtResource("2_p202w")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

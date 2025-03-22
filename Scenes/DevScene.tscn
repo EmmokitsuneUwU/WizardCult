@@ -1,0 +1,1101 @@
+[gd_scene load_steps=38 format=4 uid="uid://b1qely2ki1oid"]
+
+[ext_resource type="Script" uid="uid://m6ruwso6gtvc" path="res://Scripts/CameraManager.gd" id="1_prw3r"]
+[ext_resource type="Script" uid="uid://c3syaqgqirfsw" path="res://Scripts/SceneManager.gd" id="1_vb6w4"]
+[ext_resource type="Texture2D" uid="uid://c5lfi1jkbnnl3" path="res://Assets/GUI/AnimPing.png" id="2_1ggyi"]
+[ext_resource type="Texture2D" uid="uid://dmgp1k2x4or3k" path="res://Assets/Map/TileSet.png" id="2_ipd3d"]
+[ext_resource type="Theme" uid="uid://dd0kl451aaix6" path="res://Assets/Themes/FirstAge.tres" id="3_mbiv1"]
+[ext_resource type="PackedScene" uid="uid://v4ulr8i3dgfc" path="res://Prefabs/Units/Cow.tscn" id="3_v4yyn"]
+[ext_resource type="PackedScene" uid="uid://8w6qfhe8wb12" path="res://Prefabs/Units/wizard.tscn" id="3_vt06f"]
+[ext_resource type="Texture2D" uid="uid://c6ejd188al60f" path="res://Assets/GUI/BgStone.png" id="4_0ahm2"]
+[ext_resource type="Texture2D" uid="uid://bcu3nx3s6r6b3" path="res://Assets/Sprites/Hammer.png" id="5_ik1j7"]
+[ext_resource type="Texture2D" uid="uid://dkjyeypjxt0sp" path="res://Assets/Sprites/ResourcesSpriteSheet.png" id="6_da1wn"]
+[ext_resource type="Texture2D" uid="uid://7qrewa21umly" path="res://Assets/Sprites/HammerPressed.png" id="6_gl6co"]
+[ext_resource type="PackedScene" uid="uid://catdiv3qqt8kd" path="res://Prefabs/Env/PalmTree.tscn" id="6_ryche"]
+[ext_resource type="Texture2D" uid="uid://cbpgoasnaikp2" path="res://Assets/Sprites/HammerHover.png" id="7_r36tr"]
+[ext_resource type="PackedScene" uid="uid://0slcogattcvc" path="res://Prefabs/Env/TownCenter.tscn" id="9_qtj1u"]
+[ext_resource type="FontFile" uid="uid://bfew75ukx7ftj" path="res://Assets/KitsuneMage.ttf" id="9_r36tr"]
+[ext_resource type="PackedScene" uid="uid://bojwnx8egjgns" path="res://Prefabs/Env/Rock.tscn" id="11_k2iba"]
+[ext_resource type="PackedScene" uid="uid://dv6jcho4dkf6p" path="res://Prefabs/Env/FruitTree.tscn" id="12_k8lcy"]
+[ext_resource type="Script" uid="uid://b0ep30st2funs" path="res://Scripts/BuildingSystem.gd" id="18_r6884"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6pwd"]
+texture = ExtResource("4_0ahm2")
+axis_stretch_horizontal = 2
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik1j7"]
+atlas = ExtResource("6_da1wn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unkcg"]
+atlas = ExtResource("6_da1wn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da1wn"]
+atlas = ExtResource("6_da1wn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gl6co"]
+size = Vector2(32, 32)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r36tr"]
+size = Vector2(16, 16)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r6884"]
+size = Vector2(16, 16)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0515f"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0l3l"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruog7"]
+atlas = ExtResource("2_1ggyi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybq4k"]
+atlas = ExtResource("2_1ggyi")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppwlc"]
+atlas = ExtResource("2_1ggyi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nqqc"]
+atlas = ExtResource("2_1ggyi")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m80gt"]
+atlas = ExtResource("2_1ggyi")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t35we"]
+atlas = ExtResource("2_1ggyi")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m3jdt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruog7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybq4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppwlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nqqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m80gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t35we")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"Action",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 5.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_227n3"]
+texture = ExtResource("2_ipd3d")
+texture_region_size = Vector2i(32, 16)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_desa1"]
+tile_shape = 1
+tile_size = Vector2i(32, 16)
+sources/1 = SubResource("TileSetAtlasSource_227n3")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bshrb"]
+vertices = PackedVector2Array(1813.87, 6.38281, 1888.78, 40.4297, 1822, 73.8203, 1742, 606.18, 1890, 680.172, 1524.46, 870.562, 1822, 86.1797, 1970.09, 160.219, 1827.74, 235.148, 791.594, -1061.07, 1330.33, -799.398, 1269.9, -765.828, 1749.81, 525.781, 1810.57, 559.531, 1742, 593.82, 1270.11, -753.82, 1650.73, -559.617, 1589.91, -525.844, -1678.19, 473.727, -1811.87, 406.883, -1685.55, 325.148, -305.258, 902.039, -1365.76, 949.883, -1744.33, 752.711, -1827.12, 572.094, -1677.82, 485.656, 1899.61, 442.789, 1750.2, 513.578, 720.461, 877.047, -1635.61, -605.68, -1660.5, -714.57, -1127.38, -981.133, -1741.46, -369.727, -1596.42, -434.203, -1039.83, -949.297, 1590.09, -513.867, 1821.87, -393.977, -960.211, -981.148, -888.203, -949.148, -808, -981.227, -729.93, -950, -709.641, -950, 9.38281, 837.508, -567.773, -1020.93, -408.102, -949.078, -239.859, -1021.18, -159.797, -989.148, -87.7812, -1021.15, -8.17188, -989.297, 79.6172, -1021.22, 221.508, -958.156, 638.094, 910, 154.352, 910, 264.32, -954.859, 544.422, -1100.94, 711.867, -1029.18, 1198.78, 950, 866.352, 950)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 7, 8), PackedInt32Array(9, 10, 11), PackedInt32Array(12, 13, 14), PackedInt32Array(15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(22, 23, 24, 25, 21), PackedInt32Array(8, 26, 27, 28), PackedInt32Array(29, 30, 31), PackedInt32Array(20, 32, 33, 21), PackedInt32Array(33, 29, 31, 34, 21), PackedInt32Array(35, 36, 0, 28), PackedInt32Array(21, 25, 18), PackedInt32Array(21, 34, 37, 38), PackedInt32Array(21, 38, 39, 40), PackedInt32Array(21, 40, 41, 42), PackedInt32Array(42, 41, 43, 44), PackedInt32Array(42, 44, 45, 46), PackedInt32Array(42, 46, 47, 48), PackedInt32Array(42, 48, 49, 50), PackedInt32Array(51, 52, 42, 50, 53, 28), PackedInt32Array(28, 53, 54, 55), PackedInt32Array(28, 55, 9, 11, 15), PackedInt32Array(28, 15, 17, 35), PackedInt32Array(28, 0, 2, 6), PackedInt32Array(28, 6, 8), PackedInt32Array(5, 56, 57, 28, 27, 12, 14), PackedInt32Array(5, 14, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1672, -720, -1645.36, -603.454, -1608, -440, -1752, -376, -1696, 320, -1832, 408, -1688, 480, -1840, 568, -1752, 760, -1368, 960, -304, 912, 8, 848, 152, 920, 640, 920, 720, 888, 864, 960, 1200, 960, 1528, 880, 1912, 680, 1752, 600, 1832, 560, 1760, 520, 1912, 448, 1840, 240, 1992, 160, 1832, 80, 1912, 40, 1824, 0, 1832, -400, 1600, -520, 1672, -560, 1280, -760, 1352, -800, 792, -1072, 712, -1040, 544, -1112, 262.228, -965.046, 224, -968, 80, -1032, -8, -1000, -88, -1032, -160, -1000, -240, -1032, -408, -960, -568, -1032, -712, -960, -728, -960, -808, -992, -888, -960, -960, -992, -1040, -960, -1128, -992)])
+parsed_collision_mask = 4294967167
+
+[node name="DevScene" type="Node2D" node_paths=PackedStringArray("townCenter") groups=["Structure"]]
+script = ExtResource("1_vb6w4")
+townCenter = NodePath("TownCenter")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="GUI"]
+z_index = 99
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_mbiv1")
+
+[node name="TopPanel" type="Panel" parent="GUI/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.125
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l6pwd")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextPanel" type="Panel" parent="GUI/Control/TopPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.166667
+anchor_right = 0.625
+anchor_bottom = 0.833333
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="GUI/Control/TopPanel/TextPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1875
+anchor_top = 0.125
+anchor_right = 0.8125
+anchor_bottom = 0.875
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 12
+theme_override_font_sizes/font_size = 55
+text = "$AGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Hammer" type="Panel" parent="GUI/Control/TopPanel"]
+layout_mode = 0
+anchor_left = 0.0078125
+anchor_top = 0.0833333
+anchor_right = 0.0859375
+anchor_bottom = 0.916667
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="GUI/Control/TopPanel/Hammer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+texture_normal = ExtResource("5_ik1j7")
+texture_pressed = ExtResource("6_gl6co")
+texture_hover = ExtResource("7_r36tr")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="BottomPanel" type="Panel" parent="GUI/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.833333
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_l6pwd")
+metadata/_edit_use_anchors_ = true
+
+[node name="UnitImage" type="Panel" parent="GUI/Control/BottomPanel"]
+layout_mode = 0
+anchor_left = 0.0078125
+anchor_top = 0.0624999
+anchor_right = 0.117188
+anchor_bottom = 0.937498
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BottomPanel/UnitImage"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0714286
+anchor_top = 0.0714286
+anchor_right = 0.928571
+anchor_bottom = 0.928571
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="UnitData" type="Panel" parent="GUI/Control/BottomPanel"]
+layout_mode = 0
+anchor_left = 0.125
+anchor_top = 0.0624999
+anchor_right = 0.34375
+anchor_bottom = 0.937498
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BottomPanel/UnitData"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0357143
+anchor_top = 0.0714286
+anchor_right = 0.964286
+anchor_bottom = 0.928572
+theme_override_constants/separation = 10
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="UnitName" type="Label" parent="GUI/Control/BottomPanel/UnitData/VBoxContainer"]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="GUI/Control/BottomPanel/UnitData/VBoxContainer"]
+layout_mode = 2
+
+[node name="UnitHealth" type="ProgressBar" parent="GUI/Control/BottomPanel/UnitData/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="GUI/Control/BottomPanel/UnitData/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GUI/Control/BottomPanel/UnitData/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="UnitResources" type="Panel" parent="GUI/Control/BottomPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351562
+anchor_top = 0.0625018
+anchor_right = 0.570312
+anchor_bottom = 0.9375
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GUI/Control/BottomPanel/UnitResources"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0357143
+anchor_top = 0.0714286
+anchor_right = 0.964286
+anchor_bottom = 0.928572
+theme_override_constants/separation = 30
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wood" type="VBoxContainer" parent="GUI/Control/BottomPanel/UnitResources/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BottomPanel/UnitResources/VBoxContainer/Wood"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ik1j7")
+
+[node name="Label" type="Label" parent="GUI/Control/BottomPanel/UnitResources/VBoxContainer/Wood"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stone" type="VBoxContainer" parent="GUI/Control/BottomPanel/UnitResources/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BottomPanel/UnitResources/VBoxContainer/Stone"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_unkcg")
+
+[node name="Label" type="Label" parent="GUI/Control/BottomPanel/UnitResources/VBoxContainer/Stone"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Food" type="VBoxContainer" parent="GUI/Control/BottomPanel/UnitResources/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BottomPanel/UnitResources/VBoxContainer/Food"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_da1wn")
+
+[node name="Label" type="Label" parent="GUI/Control/BottomPanel/UnitResources/VBoxContainer/Food"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resources" type="Panel" parent="GUI/Control/BottomPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6875
+anchor_top = 0.0624999
+anchor_right = 0.992188
+anchor_bottom = 0.937498
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GUI/Control/BottomPanel/Resources"]
+layout_mode = 0
+anchor_left = 0.0357143
+anchor_top = 0.0714286
+anchor_right = 0.964286
+anchor_bottom = 0.928572
+theme_override_constants/separation = 30
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wood" type="VBoxContainer" parent="GUI/Control/BottomPanel/Resources/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BottomPanel/Resources/VBoxContainer/Wood"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ik1j7")
+
+[node name="Label" type="Label" parent="GUI/Control/BottomPanel/Resources/VBoxContainer/Wood"]
+layout_mode = 2
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stone" type="VBoxContainer" parent="GUI/Control/BottomPanel/Resources/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BottomPanel/Resources/VBoxContainer/Stone"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_unkcg")
+
+[node name="Label" type="Label" parent="GUI/Control/BottomPanel/Resources/VBoxContainer/Stone"]
+layout_mode = 2
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Food" type="VBoxContainer" parent="GUI/Control/BottomPanel/Resources/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BottomPanel/Resources/VBoxContainer/Food"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_da1wn")
+
+[node name="Label" type="Label" parent="GUI/Control/BottomPanel/Resources/VBoxContainer/Food"]
+layout_mode = 2
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuildPanel" type="Panel" parent="GUI/Control"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.125
+anchor_right = 0.25
+anchor_bottom = 0.5
+theme_override_styles/panel = SubResource("StyleBoxTexture_l6pwd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="GUI/Control/BuildPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.0277778
+anchor_right = 0.95
+anchor_bottom = 0.972222
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GUI/Control/BuildPanel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0477431
+anchor_top = 0.0294118
+anchor_right = 0.985243
+anchor_bottom = 0.970588
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ElementContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
+metadata/_edit_use_anchors_ = true
+
+[node name="Element1" type="Control" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gl6co")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r36tr")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r6884")
+
+[node name="Label2" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0515f")
+
+[node name="Label3" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="Element1" type="Button" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1"]
+custom_minimum_size = Vector2(208, 55)
+layout_mode = 1
+
+[node name="Element2" type="Control" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gl6co")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r36tr")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r6884")
+
+[node name="Label2" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0515f")
+
+[node name="Label3" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="Element2" type="Button" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2"]
+custom_minimum_size = Vector2(208, 55)
+layout_mode = 0
+
+[node name="Element3" type="Control" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gl6co")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r36tr")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r6884")
+
+[node name="Label2" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0515f")
+
+[node name="Label3" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="Element3" type="Button" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3"]
+custom_minimum_size = Vector2(208, 55)
+layout_mode = 0
+
+[node name="Element4" type="Control" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gl6co")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r36tr")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r6884")
+
+[node name="Label2" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0515f")
+
+[node name="Label3" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="Element4" type="Button" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4"]
+custom_minimum_size = Vector2(208, 55)
+layout_mode = 0
+
+[node name="Element5" type="Control" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gl6co")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r36tr")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r6884")
+
+[node name="Label2" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0515f")
+
+[node name="Label3" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="Element5" type="Button" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5"]
+custom_minimum_size = Vector2(208, 55)
+layout_mode = 0
+
+[node name="Element6" type="Control" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gl6co")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r36tr")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r6884")
+
+[node name="Label2" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0515f")
+
+[node name="Label3" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="Element6" type="Button" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6"]
+custom_minimum_size = Vector2(208, 55)
+layout_mode = 0
+
+[node name="Element7" type="Control" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gl6co")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r36tr")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r6884")
+
+[node name="Label2" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0515f")
+
+[node name="Label3" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="Element7" type="Button" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7"]
+custom_minimum_size = Vector2(208, 55)
+layout_mode = 0
+
+[node name="Element8" type="Control" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gl6co")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r36tr")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r6884")
+
+[node name="Label2" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0515f")
+
+[node name="Label3" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="Element8" type="Button" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8"]
+custom_minimum_size = Vector2(208, 55)
+layout_mode = 0
+
+[node name="Element9" type="Control" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gl6co")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r36tr")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r6884")
+
+[node name="Label2" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0515f")
+
+[node name="Label3" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="Element9" type="Button" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9"]
+custom_minimum_size = Vector2(208, 55)
+layout_mode = 0
+
+[node name="Element10" type="Control" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gl6co")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r36tr")
+
+[node name="Label" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r6884")
+
+[node name="Label2" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0515f")
+
+[node name="Label3" type="Label" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "999"
+
+[node name="Element10" type="Button" parent="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10"]
+custom_minimum_size = Vector2(208, 55)
+layout_mode = 0
+
+[node name="Close" type="Button" parent="GUI/Control/BuildPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.01389
+anchor_right = 1.03125
+anchor_bottom = 1.23611
+focus_mode = 0
+theme_override_fonts/font = ExtResource("9_r36tr")
+theme_override_font_sizes/font_size = 56
+text = "^
+"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_prw3r")
+
+[node name="Cursor" type="Area2D" parent="."]
+position = Vector2(1000, 1000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor"]
+shape = SubResource("RectangleShape2D_g0l3l")
+
+[node name="Ping" type="AnimatedSprite2D" parent="Cursor"]
+modulate = Color(1, 0, 0, 1)
+z_index = 5
+texture_filter = 1
+position = Vector2(-1, -1)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_m3jdt")
+animation = &"Action"
+autoplay = "Rest"
+
+[node name="SilkScreen" type="Sprite2D" parent="Cursor"]
+z_index = 55
+texture_filter = 1
+scale = Vector2(5, 5)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -10
+texture_filter = 1
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD/////AQABAAAAAAD//wAAAQABAAAAAAD//wEAAQABAAAAAAAAAAAAAQABAAAAAAD+////AQABAAAAAAD///7/AQABAAAAAAD///3/AQABAAAAAAAAAP7/AQABAAAAAAAAAP//AQABAAAAAAD+/wAAAQABAAAAAAD+/wEAAQABAAAAAAD//wIAAQABAAAAAAD//wMAAQACAAAAAAAAAAIAAQABAAAAAAAAAAEAAQABAAAAAAABAAAAAQABAAAAAAABAP//AQACAAAAAAABAP7/AQACAAAAAAAAAP3/AQABAAAAAAAAAPz/AQABAAAAAAD///v/AQABAAAAAAD///z/AQABAAAAAAD+//3/AQABAAAAAAD+//7/AQABAAAAAAD9////AQABAAAAAAD9//7/AQABAAAAAAD9//3/AQABAAAAAAD+//z/AQABAAAAAAD+//v/AQABAAAAAAD///r/AQABAAAAAAD///n/AQABAAAAAAAAAPr/AQABAAAAAAAAAPv/AQABAAAAAAABAPz/AQACAAAAAAABAP3/AQABAAAAAAACAP7/AQACAAAAAAACAP//AQACAAAAAAACAAAAAQACAAAAAAABAAEAAQABAAAAAAABAAIAAQABAAAAAAAAAAMAAQABAAAAAAAAAAQAAQABAAAAAAD//wUAAQACAAAAAAD//wQAAQACAAAAAAD+/wMAAQACAAAAAAD+/wIAAQACAAAAAAD9/wEAAQABAAAAAAD9/wAAAQACAAAAAAD8////AQACAAAAAAABAAMAAQABAAAAAAABAAQAAQABAAAAAAABAAUAAQABAAAAAAADAAQAAQABAAAAAAADAAYAAQABAAAAAAACAAYAAQABAAAAAAACAAUAAQABAAAAAAACAAQAAQABAAAAAAACAAgAAQABAAAAAAACAAkAAQABAAAAAAADAAoAAQABAAAAAAAEAAsAAQABAAAAAAADAAgAAQABAAAAAAADAAcAAQABAAAAAAAEAAgAAQABAAAAAAAEAAkAAQABAAAAAAADAAUAAQABAAAAAAAEAAQAAQABAAAAAAAFAAcAAQABAAAAAAAAAAYAAQACAAAAAAAAAAcAAQACAAAAAAABAAgAAQACAAAAAAABAAkAAQACAAAAAAACAAoAAQACAAAAAAACAAsAAQACAAAAAAACAAwAAQACAAAAAAACAA0AAQACAAAAAAADAA4AAQACAAAAAAADAA0AAQACAAAAAAADAAwAAQACAAAAAAAEAA4AAQACAAAAAAABAAsAAQACAAAAAAABAAoAAQACAAAAAAAAAAkAAQACAAAAAAAAAAgAAQACAAAAAAD//wcAAQACAAAAAAD//wYAAQACAAAAAAD+/wUAAQACAAAAAAD+/wQAAQACAAAAAAD9/wMAAQACAAAAAAD9/wIAAQACAAAAAAD8/wEAAQACAAAAAAD8/wAAAQACAAAAAAADAA8AAQACAAAAAAAEABAAAQACAAAAAAAEABEAAQADAAAAAAAFABAAAQACAAAAAAAFAA8AAQACAAAAAAAGAA4AAQACAAAAAAAGAA0AAQACAAAAAAAHAAwAAQACAAAAAAAHAAsAAQACAAAAAAAIAAoAAQADAAAAAAAHAAkAAQACAAAAAAAHAAgAAQACAAAAAAAGAAcAAQACAAAAAAAGAAYAAQACAAAAAAAFAAUAAQACAAAAAAAFAAQAAQACAAAAAAAEAAMAAQACAAAAAAAFAAIAAQACAAAAAAAEAAEAAQACAAAAAAAEAAAAAQACAAAAAAADAAEAAQACAAAAAAADAAAAAQACAAAAAAAEAAIAAQACAAAAAAAIAAgAAQADAAAAAAAIAAkAAQADAAAAAAAHAAcAAQACAAAAAAAHAAYAAQACAAAAAAAGAAUAAQACAAAAAAAGAAQAAQACAAAAAAAFAAMAAQACAAAAAAADAP//AQACAAAAAAADAP7/AQACAAAAAAACAP3/AQACAAAAAAACAPz/AQACAAAAAAABAPv/AQACAAAAAAAAAPn/AQACAAAAAAABAPr/AQACAAAAAAAAAPj/AQACAAAAAAD///f/AQACAAAAAAD///j/AQACAAAAAAD+//n/AQABAAAAAAD+//r/AQABAAAAAAD9//v/AQABAAAAAAD9//r/AQABAAAAAAD8//v/AQACAAAAAAD8//z/AQACAAAAAAD8//3/AQACAAAAAAD8//7/AQACAAAAAAD9//z/AQACAAAAAAD9//n/AQABAAAAAAD+//j/AQACAAAAAAD+//f/AQACAAAAAAD///b/AQACAAAAAAD7//3/AQACAAAAAAD7//7/AQACAAAAAAD7////AQACAAAAAAD6//3/AQACAAAAAAD7//z/AQACAAAAAAD7//v/AQACAAAAAAD8//r/AQACAAAAAAD8//n/AQACAAAAAAD9//j/AQACAAAAAAD9//f/AQACAAAAAAD+//b/AQACAAAAAAD+//X/AQACAAAAAAD+//T/AQACAAAAAAD9//X/AQACAAAAAAD9//b/AQACAAAAAAD8//f/AQACAAAAAAD8//j/AQACAAAAAAD7//n/AQACAAAAAAD7//r/AQACAAAAAAD6//v/AQACAAAAAAD6//z/AQACAAAAAAAEAA8AAQACAAAAAAAFAA4AAQACAAAAAAAFAA0AAQACAAAAAAAGAAwAAQACAAAAAAAGAAsAAQACAAAAAAAHAAoAAQACAAAAAAAGAAkAAQACAAAAAAAGAAoAAQACAAAAAAAFAAsAAQACAAAAAAAFAAwAAQACAAAAAAAEAA0AAQACAAAAAAAEAAwAAQACAAAAAAADAAsAAQACAAAAAAAEAAoAAQACAAAAAAADAAkAAQACAAAAAAAFAAoAAQACAAAAAAAFAAkAAQACAAAAAAAGAAgAAQACAAAAAAAFAAgAAQACAAAAAAAEAAcAAQACAAAAAAAEAAYAAQACAAAAAAAEAAUAAQACAAAAAAAFAAYAAQACAAAAAAADAAMAAQACAAAAAAADAAIAAQACAAAAAAACAAEAAQACAAAAAAACAAIAAQACAAAAAAACAAMAAQACAAAAAAACAAcAAQACAAAAAAABAAcAAQACAAAAAAABAAYAAQACAAAAAAAAAAUAAQACAAAAAAD5//3/AQACAAAAAAD6//7/AQACAAAAAAD6////AQACAAAAAAD7/wAAAQACAAAAAAD7/wEAAQACAAAAAAD8/wIAAQACAAAAAAD8/wMAAQACAAAAAAD9/wQAAQACAAAAAAD9/wUAAQACAAAAAAD+/wYAAQACAAAAAAD+/wcAAQACAAAAAAD//wgAAQACAAAAAAD//wkAAQACAAAAAAAAAAoAAQACAAAAAAAAAAsAAQACAAAAAAABAAwAAQACAAAAAAABAA0AAQACAAAAAAACAA4AAQACAAAAAAACAA8AAQACAAAAAAADABAAAQACAAAAAAADABEAAQACAAAAAAAEABIAAQADAAAAAAADABMAAQADAAAAAAADABIAAQADAAAAAAACABEAAQADAAAAAAACABAAAQACAAAAAAABAA8AAQACAAAAAAABAA4AAQACAAAAAAAAAA0AAQACAAAAAAAAAAwAAQACAAAAAAD//wsAAQACAAAAAAD//woAAQACAAAAAAD+/wkAAQACAAAAAAD+/wgAAQACAAAAAAD9/wcAAQACAAAAAAD9/wYAAQACAAAAAAD8/wUAAQACAAAAAAD8/wQAAQACAAAAAAD7/wMAAQACAAAAAAD7/wIAAQACAAAAAAD6/wEAAQACAAAAAAD6/wAAAQACAAAAAAD5////AQACAAAAAAD5//7/AQACAAAAAAD4////AQACAAAAAAD5/wAAAQACAAAAAAD5/wEAAQACAAAAAAD6/wIAAQACAAAAAAD6/wMAAQACAAAAAAD7/wQAAQACAAAAAAD7/wUAAQACAAAAAAD8/wYAAQACAAAAAAD8/wcAAQACAAAAAAD9/wgAAQACAAAAAAD9/wkAAQACAAAAAAD+/woAAQACAAAAAAD+/wsAAQACAAAAAAD//wwAAQACAAAAAAD//w0AAQACAAAAAAAAAA4AAQACAAAAAAAAAA8AAQACAAAAAAABABAAAQADAAAAAAABABEAAQADAAAAAAACABIAAQADAAAAAAACABMAAQADAAAAAAADABQAAQADAAAAAAACABQAAQADAAAAAAACABUAAQADAAAAAAABABMAAQADAAAAAAABABIAAQADAAAAAAAAABEAAQADAAAAAAAAABAAAQADAAAAAAD//w8AAQADAAAAAAD//w4AAQACAAAAAAD+/w0AAQACAAAAAAD+/wwAAQACAAAAAAD9/wsAAQACAAAAAAD9/woAAQACAAAAAAD8/wkAAQACAAAAAAD8/wgAAQACAAAAAAD7/wcAAQACAAAAAAD7/wYAAQACAAAAAAD6/wUAAQACAAAAAAD6/wQAAQACAAAAAAD5/wMAAQACAAAAAAD5/wIAAQACAAAAAAD4/wEAAQACAAAAAAD4/wAAAQACAAAAAAD3/wEAAQACAAAAAAD4/wIAAQACAAAAAAD4/wMAAQACAAAAAAD5/wQAAQACAAAAAAD5/wUAAQACAAAAAAD6/wYAAQACAAAAAAD6/wcAAQACAAAAAAD7/wgAAQACAAAAAAD7/wkAAQACAAAAAAD8/woAAQACAAAAAAD8/wsAAQACAAAAAAD9/wwAAQACAAAAAAD9/w0AAQACAAAAAAD+/w4AAQACAAAAAAD+/w8AAQADAAAAAAD//xAAAQADAAAAAAD//xEAAQADAAAAAAAAABIAAQADAAAAAAAAABMAAQADAAAAAAABABQAAQADAAAAAAABABUAAQADAAAAAAACABYAAQAAAAAAAAAJAAgAAQADAAAAAAAJAAcAAQADAAAAAAAKAAYAAQADAAAAAAALAAQAAQADAAAAAAAKAAUAAQADAAAAAAAKAAMAAQADAAAAAAAKAAIAAQADAAAAAAAJAAEAAQADAAAAAAAJAAAAAQADAAAAAAAIAP//AQADAAAAAAAIAP7/AQACAAAAAAAHAP3/AQACAAAAAAAHAPz/AQACAAAAAAAGAPv/AQACAAAAAAAGAPr/AQACAAAAAAAFAPn/AQACAAAAAAAFAPj/AQACAAAAAAAEAPf/AQACAAAAAAAEAPb/AQACAAAAAAADAPX/AQACAAAAAAADAPT/AQACAAAAAAACAPP/AQACAAAAAAACAPL/AQACAAAAAAABAPH/AQACAAAAAAABAPD/AQACAAAAAAAAAO//AQACAAAAAAAAAPD/AQACAAAAAAD///H/AQACAAAAAAAAAPL/AQACAAAAAAD///P/AQACAAAAAAD///T/AQACAAAAAAD+//P/AQACAAAAAAD///L/AQACAAAAAAAAAPH/AQACAAAAAAABAPL/AQACAAAAAAABAPP/AQACAAAAAAACAPT/AQACAAAAAAACAPX/AQACAAAAAAADAPb/AQACAAAAAAADAPf/AQACAAAAAAAEAPj/AQACAAAAAAAEAPn/AQACAAAAAAAFAPr/AQACAAAAAAAFAPv/AQACAAAAAAAGAPz/AQACAAAAAAAGAP3/AQACAAAAAAAHAP7/AQACAAAAAAAHAP//AQACAAAAAAAIAAAAAQACAAAAAAAIAAEAAQADAAAAAAAJAAIAAQADAAAAAAAJAAMAAQADAAAAAAAKAAQAAQADAAAAAAAJAAUAAQADAAAAAAAJAAQAAQADAAAAAAAIAAMAAQADAAAAAAAIAAIAAQACAAAAAAAHAAEAAQACAAAAAAAHAAAAAQACAAAAAAAGAP//AQACAAAAAAAGAP7/AQACAAAAAAAFAP3/AQACAAAAAAAFAPz/AQACAAAAAAAEAPv/AQACAAAAAAAEAPr/AQACAAAAAAADAPn/AQACAAAAAAADAPj/AQACAAAAAAACAPf/AQACAAAAAAACAPb/AQACAAAAAAABAPX/AQACAAAAAAABAPT/AQACAAAAAAAAAPP/AQACAAAAAAAAAPT/AQACAAAAAAAAAPX/AQACAAAAAAABAPb/AQACAAAAAAABAPf/AQACAAAAAAACAPj/AQACAAAAAAACAPn/AQACAAAAAAADAPr/AQACAAAAAAADAPv/AQACAAAAAAAEAPz/AQACAAAAAAADAP3/AQACAAAAAAAEAP7/AQACAAAAAAAEAP//AQACAAAAAAAFAAAAAQACAAAAAAAFAAEAAQACAAAAAAAGAAIAAQACAAAAAAAGAAMAAQACAAAAAAAHAAQAAQACAAAAAAAHAAUAAQACAAAAAAAIAAYAAQADAAAAAAAIAAcAAQADAAAAAAAJAAYAAQADAAAAAAAIAAUAAQADAAAAAAAIAAQAAQACAAAAAAAHAAMAAQACAAAAAAAHAAIAAQACAAAAAAAGAAEAAQACAAAAAAAGAAAAAQACAAAAAAAFAP//AQACAAAAAAAFAP7/AQACAAAAAAAEAP3/AQACAAAAAAD///X/AQACAAAAAAAAAPb/AQACAAAAAAAAAPf/AQACAAAAAAABAPj/AQACAAAAAAABAPn/AQACAAAAAAACAPr/AQACAAAAAAACAPv/AQACAAAAAAADAPz/AQACAAAAAAD3/wAAAQADAAAAAAD2////AQADAAAAAAD2//7/AQADAAAAAAD1//3/AQADAAAAAAD2//z/AQADAAAAAAD2//v/AQADAAAAAAD3//r/AQADAAAAAAD3//n/AQADAAAAAAD4//j/AQACAAAAAAD4//f/AQACAAAAAAD5//b/AQACAAAAAAD5//X/AQACAAAAAAD6//T/AQACAAAAAAD6//P/AQACAAAAAAD7//L/AQACAAAAAAD7//H/AQACAAAAAAD8//D/AQACAAAAAAD8/+//AQACAAAAAAD9/+7/AQACAAAAAAD9/+3/AQACAAAAAAD+/+z/AQADAAAAAAD+/+v/AQADAAAAAAD//+z/AQACAAAAAAD//+3/AQACAAAAAAAAAO7/AQACAAAAAAD//+//AQACAAAAAAD///D/AQACAAAAAAD+//H/AQACAAAAAAD+//L/AQACAAAAAAD9//P/AQACAAAAAAD9//T/AQACAAAAAAD8//X/AQACAAAAAAD8//b/AQACAAAAAAD7//f/AQACAAAAAAD7//j/AQACAAAAAAD6//n/AQACAAAAAAD6//r/AQACAAAAAAD5//v/AQACAAAAAAD5//z/AQACAAAAAAD4//3/AQACAAAAAAD4//7/AQACAAAAAAD3////AQACAAAAAAD3//7/AQADAAAAAAD2//3/AQADAAAAAAD3//z/AQADAAAAAAD3//v/AQACAAAAAAD4//r/AQACAAAAAAD4//n/AQACAAAAAAD5//j/AQACAAAAAAD5//f/AQACAAAAAAD6//b/AQACAAAAAAD6//X/AQACAAAAAAD7//T/AQACAAAAAAD7//P/AQACAAAAAAD8//L/AQACAAAAAAD8//H/AQACAAAAAAD9//D/AQACAAAAAAD9/+//AQACAAAAAAD+/+7/AQACAAAAAAD+/+3/AQACAAAAAAD//+7/AQACAAAAAAD+/+//AQACAAAAAAD+//D/AQACAAAAAAD9//H/AQACAAAAAAD9//L/AQACAAAAAAD8//P/AQACAAAAAAD8//T/AQACAAAAAAD7//X/AQACAAAAAAD7//b/AQACAAAAAAD6//f/AQACAAAAAAD6//j/AQACAAAAAAD5//n/AQACAAAAAAD5//r/AQACAAAAAAD4//v/AQACAAAAAAD4//z/AQACAAAAAAD3//3/AQACAAAAAAD6/xUAAQADAAAAAAD7/xQAAQADAAAAAAD7/xMAAQADAAAAAAD8/xIAAQADAAAAAAD8/xEAAQADAAAAAAD9/xAAAQADAAAAAAD9/w8AAQADAAAAAAD9/w4AAQACAAAAAAD8/w0AAQACAAAAAAD8/wwAAQACAAAAAAD7/wsAAQACAAAAAAD7/woAAQACAAAAAAD6/wkAAQACAAAAAAD6/wgAAQACAAAAAAD5/wcAAQACAAAAAAD5/wYAAQACAAAAAAD4/wUAAQACAAAAAAD4/wQAAQACAAAAAAD3/wMAAQACAAAAAAD3/wIAAQACAAAAAAD2/wEAAQADAAAAAAD2/wAAAQADAAAAAAD1////AQADAAAAAAD1//7/AQADAAAAAAD1/wAAAQADAAAAAAD1/wEAAQADAAAAAAD1/wIAAQADAAAAAAD1/wMAAQADAAAAAAD2/wIAAQADAAAAAAD2/wMAAQADAAAAAAD2/wQAAQADAAAAAAD1/wUAAQADAAAAAAD1/wQAAQADAAAAAAD1/wYAAQADAAAAAAD1/wcAAQADAAAAAAD2/wYAAQADAAAAAAD2/wUAAQADAAAAAAD3/wQAAQADAAAAAAD3/wUAAQACAAAAAAD3/wYAAQADAAAAAAD2/wcAAQADAAAAAAD2/wgAAQADAAAAAAD1/wkAAQADAAAAAAD1/wgAAQADAAAAAAD1/woAAQADAAAAAAD1/wsAAQADAAAAAAD2/woAAQADAAAAAAD2/wkAAQADAAAAAAD3/wgAAQACAAAAAAD3/wcAAQACAAAAAAD4/wYAAQACAAAAAAD4/wcAAQACAAAAAAD4/wgAAQACAAAAAAD3/wkAAQACAAAAAAD3/woAAQACAAAAAAD2/wsAAQADAAAAAAD2/wwAAQADAAAAAAD1/w0AAQADAAAAAAD1/wwAAQADAAAAAAD1/w4AAQADAAAAAAD1/w8AAQADAAAAAAD2/w4AAQADAAAAAAD2/w0AAQADAAAAAAD3/wwAAQADAAAAAAD3/wsAAQACAAAAAAD4/woAAQACAAAAAAD4/wkAAQACAAAAAAD5/wgAAQACAAAAAAD5/wkAAQACAAAAAAD5/woAAQACAAAAAAD4/wsAAQACAAAAAAD4/wwAAQACAAAAAAD3/w0AAQACAAAAAAD3/w4AAQADAAAAAAD2/w8AAQADAAAAAAD2/xAAAQADAAAAAAD1/xEAAQADAAAAAAD1/xAAAQADAAAAAAD1/xIAAQADAAAAAAD1/xMAAQADAAAAAAD2/xIAAQADAAAAAAD2/xEAAQADAAAAAAD3/xAAAQADAAAAAAD3/w8AAQACAAAAAAD4/w4AAQACAAAAAAD4/w0AAQACAAAAAAD5/wwAAQACAAAAAAD5/wsAAQACAAAAAAD6/woAAQACAAAAAAD6/wsAAQACAAAAAAD6/wwAAQACAAAAAAD5/w0AAQACAAAAAAD5/w4AAQACAAAAAAD4/w8AAQACAAAAAAD4/xAAAQACAAAAAAD3/xEAAQADAAAAAAD3/xIAAQADAAAAAAD2/xMAAQADAAAAAAD2/xQAAQADAAAAAAD1/xUAAQAAAAAAAAD1/xQAAQAAAAAAAAD1/xYAAQAAAAAAAAD2/xYAAQAAAAAAAAD2/xUAAQADAAAAAAD3/xQAAQADAAAAAAD3/xMAAQADAAAAAAD4/xIAAQADAAAAAAD4/xEAAQADAAAAAAD5/xAAAQACAAAAAAD5/w8AAQACAAAAAAD6/w4AAQACAAAAAAD6/w0AAQACAAAAAAD7/wwAAQACAAAAAAD7/w0AAQACAAAAAAD7/w4AAQACAAAAAAD6/w8AAQADAAAAAAD6/xAAAQADAAAAAAD5/xEAAQADAAAAAAD5/xIAAQADAAAAAAD4/xMAAQADAAAAAAD4/xQAAQADAAAAAAD3/xUAAQADAAAAAAD3/xYAAQADAAAAAAD4/xYAAQAAAAAAAAD4/xUAAQADAAAAAAD5/xQAAQADAAAAAAD5/xMAAQADAAAAAAD6/xIAAQADAAAAAAD6/xEAAQADAAAAAAD7/xAAAQADAAAAAAD7/w8AAQADAAAAAAD8/w4AAQACAAAAAAD8/w8AAQADAAAAAAD8/xAAAQADAAAAAAD7/xEAAQADAAAAAAD7/xIAAQADAAAAAAD6/xMAAQADAAAAAAD6/xQAAQADAAAAAAD5/xUAAQADAAAAAAD5/xYAAQAAAAAAAAD6/xYAAQAAAAAAAAD+/xAAAQADAAAAAAD9/xEAAQADAAAAAAD9/xIAAQADAAAAAAD8/xMAAQADAAAAAAD8/xQAAQADAAAAAAD7/xUAAQADAAAAAAD7/xYAAQAAAAAAAAD8/xYAAQAAAAAAAAD8/xUAAQADAAAAAAD9/xQAAQADAAAAAAD9/xMAAQADAAAAAAD+/xIAAQADAAAAAAD+/xEAAQADAAAAAAD//xIAAQADAAAAAAD+/xMAAQADAAAAAAD+/xQAAQADAAAAAAD9/xUAAQADAAAAAAD9/xYAAQAAAAAAAAD+/xYAAQAAAAAAAAD+/xUAAQAAAAAAAAD//xQAAQADAAAAAAD//xMAAQADAAAAAAAAABQAAQADAAAAAAD//xUAAQAAAAAAAAD//xYAAQAAAAAAAAAAABYAAQAAAAAAAAAAABUAAQADAAAAAAABABYAAQAAAAAAAAAIAPP/AQADAAAAAAAJAPL/AQADAAAAAAAJAPH/AQADAAAAAAAKAPD/AQAAAAAAAAAKAO//AQAAAAAAAAALAO7/AQAAAAAAAAALAO3/AQAAAAAAAAALAOz/AQAAAAAAAAALAOv/AQAAAAAAAAAKAOv/AQAAAAAAAAAKAOz/AQAAAAAAAAAJAOv/AQAAAAAAAAAJAOz/AQAAAAAAAAAIAOv/AQAAAAAAAAAIAOz/AQAAAAAAAAAHAOv/AQADAAAAAAAHAOz/AQADAAAAAAAGAOv/AQADAAAAAAAGAOz/AQADAAAAAAAFAOv/AQADAAAAAAAFAOz/AQADAAAAAAAEAOv/AQADAAAAAAAEAOz/AQADAAAAAAADAOv/AQADAAAAAAADAOz/AQADAAAAAAACAOv/AQADAAAAAAACAOz/AQADAAAAAAABAOv/AQADAAAAAAABAOz/AQADAAAAAAAAAOv/AQADAAAAAAAAAOz/AQACAAAAAAD//+v/AQADAAAAAAAAAO3/AQACAAAAAAABAO7/AQACAAAAAAABAO3/AQADAAAAAAACAO7/AQACAAAAAAACAO3/AQADAAAAAAADAO7/AQACAAAAAAADAO3/AQADAAAAAAAEAO7/AQACAAAAAAAEAO3/AQADAAAAAAAFAO7/AQACAAAAAAAFAO3/AQADAAAAAAAGAO7/AQADAAAAAAAGAO3/AQADAAAAAAAHAO7/AQADAAAAAAAHAO3/AQADAAAAAAAIAO7/AQADAAAAAAAIAO3/AQAAAAAAAAAJAO7/AQAAAAAAAAAJAO3/AQAAAAAAAAAKAO7/AQAAAAAAAAAKAO3/AQAAAAAAAAAJAO//AQAAAAAAAAAJAPD/AQADAAAAAAAIAO//AQADAAAAAAAIAPD/AQADAAAAAAAHAO//AQADAAAAAAAHAPD/AQADAAAAAAAGAO//AQADAAAAAAAGAPD/AQACAAAAAAAFAO//AQACAAAAAAAFAPD/AQACAAAAAAAEAO//AQACAAAAAAAEAPD/AQACAAAAAAADAO//AQACAAAAAAADAPD/AQACAAAAAAACAO//AQACAAAAAAACAPD/AQACAAAAAAABAO//AQACAAAAAAACAPH/AQACAAAAAAADAPL/AQACAAAAAAADAPH/AQACAAAAAAAEAPL/AQACAAAAAAAEAPH/AQACAAAAAAAFAPL/AQACAAAAAAAFAPH/AQACAAAAAAAGAPL/AQACAAAAAAAGAPH/AQACAAAAAAAHAPL/AQACAAAAAAAHAPH/AQADAAAAAAAIAPL/AQACAAAAAAAIAPH/AQADAAAAAAAHAPP/AQACAAAAAAAHAPT/AQACAAAAAAAGAPP/AQACAAAAAAAGAPT/AQACAAAAAAAFAPP/AQACAAAAAAAFAPT/AQACAAAAAAAEAPP/AQACAAAAAAAEAPT/AQACAAAAAAADAPP/AQACAAAAAAAEAPX/AQACAAAAAAAFAPb/AQACAAAAAAAFAPX/AQACAAAAAAAGAPb/AQACAAAAAAAGAPX/AQACAAAAAAAHAPb/AQACAAAAAAAHAPX/AQACAAAAAAAIAPT/AQACAAAAAAAIAPX/AQACAAAAAAAJAPT/AQADAAAAAAAJAPP/AQADAAAAAAAKAPL/AQAAAAAAAAAKAPH/AQAAAAAAAAALAPD/AQAAAAAAAAALAO//AQAAAAAAAAALAPH/AQAAAAAAAAALAPL/AQAAAAAAAAAKAPP/AQAAAAAAAAAKAPT/AQADAAAAAAAJAPX/AQADAAAAAAAJAPb/AQADAAAAAAAIAPf/AQACAAAAAAAIAPb/AQACAAAAAAAHAPf/AQACAAAAAAAHAPj/AQACAAAAAAAGAPf/AQACAAAAAAAGAPj/AQACAAAAAAAFAPf/AQACAAAAAAAGAPn/AQACAAAAAAAHAPr/AQACAAAAAAAHAPn/AQACAAAAAAAIAPj/AQACAAAAAAAIAPn/AQACAAAAAAAJAPj/AQADAAAAAAAJAPf/AQADAAAAAAAKAPb/AQADAAAAAAAKAPX/AQADAAAAAAALAPT/AQAAAAAAAAALAPP/AQAAAAAAAAALAPX/AQAAAAAAAAALAPb/AQAAAAAAAAAKAPf/AQADAAAAAAAKAPj/AQADAAAAAAAJAPn/AQADAAAAAAAJAPr/AQADAAAAAAAIAPv/AQACAAAAAAAIAPr/AQACAAAAAAAHAPv/AQACAAAAAAAIAPz/AQACAAAAAAAIAP3/AQADAAAAAAAJAPz/AQADAAAAAAAJAPv/AQADAAAAAAAKAPr/AQADAAAAAAAKAPn/AQADAAAAAAALAPj/AQAAAAAAAAALAPf/AQAAAAAAAAALAPn/AQAAAAAAAAALAPr/AQAAAAAAAAAKAPv/AQADAAAAAAAKAPz/AQADAAAAAAAJAP3/AQADAAAAAAAJAP7/AQADAAAAAAAJAP//AQADAAAAAAAKAP7/AQADAAAAAAAKAP3/AQADAAAAAAALAPz/AQAAAAAAAAALAPv/AQAAAAAAAAALAP3/AQAAAAAAAAALAP7/AQAAAAAAAAAKAP//AQADAAAAAAAKAAAAAQADAAAAAAAKAAEAAQADAAAAAAALAAAAAQADAAAAAAALAP//AQAAAAAAAAALAAEAAQAAAAAAAAALAAIAAQADAAAAAAALAAMAAQADAAAAAAAJABEAAQADAAAAAAAKABAAAQADAAAAAAAKAA8AAQADAAAAAAALAA4AAQAAAAAAAAALAA0AAQAAAAAAAAALAAwAAQAAAAAAAAALAAsAAQAAAAAAAAALAAoAAQADAAAAAAALAAkAAQAAAAAAAAALAAgAAQADAAAAAAALAAcAAQAAAAAAAAALAAYAAQADAAAAAAALAAUAAQAAAAAAAAAKAAcAAQADAAAAAAAKAAgAAQADAAAAAAAJAAkAAQADAAAAAAAJAAoAAQADAAAAAAAIAAsAAQADAAAAAAAIAAwAAQADAAAAAAAHAA0AAQACAAAAAAAHAA4AAQACAAAAAAAGAA8AAQACAAAAAAAGABAAAQADAAAAAAAFABEAAQADAAAAAAAFABIAAQADAAAAAAAEABMAAQADAAAAAAAEABQAAQADAAAAAAADABUAAQADAAAAAAADABYAAQAAAAAAAAAEABYAAQAAAAAAAAAEABUAAQADAAAAAAAFABQAAQADAAAAAAAFABMAAQADAAAAAAAGABIAAQADAAAAAAAGABEAAQADAAAAAAAHABAAAQADAAAAAAAHAA8AAQADAAAAAAAIAA4AAQADAAAAAAAIAA0AAQADAAAAAAAJAAwAAQADAAAAAAAJAAsAAQADAAAAAAAKAAoAAQADAAAAAAAKAAkAAQADAAAAAAAKAAsAAQADAAAAAAAKAAwAAQADAAAAAAAJAA0AAQADAAAAAAAJAA4AAQADAAAAAAAIAA8AAQADAAAAAAAIABAAAQADAAAAAAAHABEAAQADAAAAAAAHABIAAQADAAAAAAAGABMAAQADAAAAAAAGABQAAQADAAAAAAAFABUAAQADAAAAAAAFABYAAQADAAAAAAAGABYAAQADAAAAAAAGABUAAQADAAAAAAAHABQAAQADAAAAAAAHABMAAQADAAAAAAAIABIAAQADAAAAAAAIABEAAQADAAAAAAAJABAAAQADAAAAAAAJAA8AAQADAAAAAAAKAA4AAQADAAAAAAAKAA0AAQADAAAAAAAJABIAAQADAAAAAAAIABMAAQADAAAAAAAIABQAAQADAAAAAAAHABUAAQADAAAAAAAHABYAAQADAAAAAAAIABYAAQAAAAAAAAAIABUAAQAAAAAAAAAJABQAAQADAAAAAAAJABMAAQADAAAAAAAKABIAAQADAAAAAAAKABEAAQADAAAAAAALABAAAQADAAAAAAALAA8AAQAAAAAAAAALABEAAQAAAAAAAAALABIAAQAAAAAAAAAKABMAAQAAAAAAAAAKABQAAQAAAAAAAAAJABUAAQAAAAAAAAAJABYAAQAAAAAAAAAKABYAAQAAAAAAAAAKABUAAQAAAAAAAAALABQAAQAAAAAAAAALABMAAQAAAAAAAAALABUAAQAAAAAAAAALABYAAQAAAAAAAAD4/+//AQACAAAAAAD5/+7/AQACAAAAAAD5/+3/AQADAAAAAAD6/+z/AQADAAAAAAD6/+v/AQADAAAAAAD7/+z/AQADAAAAAAD7/+v/AQADAAAAAAD8/+z/AQACAAAAAAD8/+v/AQADAAAAAAD9/+z/AQACAAAAAAD9/+v/AQADAAAAAAD8/+3/AQACAAAAAAD8/+7/AQACAAAAAAD7/+3/AQACAAAAAAD7/+7/AQACAAAAAAD6/+3/AQACAAAAAAD6/+7/AQACAAAAAAD5/+//AQACAAAAAAD5//D/AQACAAAAAAD4//H/AQACAAAAAAD4//D/AQADAAAAAAD3/+//AQADAAAAAAD4/+7/AQADAAAAAAD4/+3/AQADAAAAAAD5/+z/AQADAAAAAAD5/+v/AQADAAAAAAD4/+v/AQADAAAAAAD4/+z/AQADAAAAAAD3/+v/AQADAAAAAAD3/+z/AQADAAAAAAD2/+v/AQADAAAAAAD2/+z/AQADAAAAAAD1/+v/AQAAAAAAAAD1/+z/AQAAAAAAAAD1/+3/AQADAAAAAAD1/+7/AQAAAAAAAAD1/+//AQADAAAAAAD2/+7/AQADAAAAAAD2/+3/AQADAAAAAAD3/+7/AQADAAAAAAD3/+3/AQADAAAAAAD2/+//AQADAAAAAAD2//D/AQADAAAAAAD1//H/AQADAAAAAAD1//D/AQAAAAAAAAD1//L/AQAAAAAAAAD1//P/AQADAAAAAAD2//L/AQADAAAAAAD2//H/AQADAAAAAAD3//D/AQADAAAAAAD3//H/AQADAAAAAAD3//L/AQADAAAAAAD2//P/AQADAAAAAAD2//T/AQADAAAAAAD1//X/AQADAAAAAAD1//T/AQAAAAAAAAD1//b/AQADAAAAAAD1//f/AQADAAAAAAD2//b/AQADAAAAAAD2//X/AQADAAAAAAD3//T/AQADAAAAAAD3//P/AQADAAAAAAD4//L/AQACAAAAAAD4//P/AQACAAAAAAD5//L/AQACAAAAAAD5//H/AQACAAAAAAD6//D/AQACAAAAAAD6/+//AQACAAAAAAD7//D/AQACAAAAAAD7/+//AQACAAAAAAD6//H/AQACAAAAAAD6//L/AQACAAAAAAD5//P/AQACAAAAAAD5//T/AQACAAAAAAD4//X/AQACAAAAAAD4//T/AQACAAAAAAD3//X/AQADAAAAAAD3//b/AQADAAAAAAD2//f/AQADAAAAAAD2//j/AQADAAAAAAD1//n/AQADAAAAAAD1//j/AQADAAAAAAD1//r/AQADAAAAAAD1//v/AQADAAAAAAD2//r/AQADAAAAAAD2//n/AQADAAAAAAD3//j/AQADAAAAAAD3//f/AQADAAAAAAD4//b/AQACAAAAAAD1//z/AQADAAAAAAAOABwAAQAAAAAAAAANABwAAQAAAAAAAAAMABwAAQAAAAAAAAALABwAAQAAAAAAAAAKABwAAQAAAAAAAAAJABwAAQAAAAAAAAAIABwAAQAAAAAAAAAHABwAAQAAAAAAAAAGABwAAQAAAAAAAAAFABwAAQAAAAAAAAAEABwAAQAAAAAAAAADABwAAQAAAAAAAAACABwAAQAAAAAAAAABABwAAQAAAAAAAAAAABwAAQAAAAAAAAD//xwAAQAAAAAAAAD+/xwAAQAAAAAAAAD0/xkAAQAAAAAAAAD0/xoAAQAAAAAAAAD0/xsAAQAAAAAAAAD0/xwAAQAAAAAAAAD0/x0AAQAAAAAAAAD0/x4AAQAAAAAAAAD0/x8AAQAAAAAAAAD0/yAAAQAAAAAAAAD0/yEAAQAAAAAAAAD0/yIAAQAAAAAAAAD0/yMAAQAAAAAAAAD0/yQAAQAAAAAAAAD0/yUAAQAAAAAAAAD0/yYAAQAAAAAAAAD0/ycAAQAAAAAAAAD0/ygAAQAAAAAAAAD0/ykAAQAAAAAAAAD1/xkAAQAAAAAAAAD1/xoAAQAAAAAAAAD1/xsAAQAAAAAAAAD1/xwAAQAAAAAAAAD1/x0AAQAAAAAAAAD1/x4AAQAAAAAAAAD1/x8AAQAAAAAAAAD1/yAAAQAAAAAAAAD1/yEAAQAAAAAAAAD1/yIAAQAAAAAAAAD1/yMAAQAAAAAAAAD1/yQAAQAAAAAAAAD1/yUAAQAAAAAAAAD1/yYAAQAAAAAAAAD1/ycAAQAAAAAAAAD1/ygAAQAAAAAAAAD1/ykAAQAAAAAAAAD2/xkAAQAAAAAAAAD2/xoAAQAAAAAAAAD2/xsAAQAAAAAAAAD2/xwAAQAAAAAAAAD2/x0AAQAAAAAAAAD2/x4AAQAAAAAAAAD2/x8AAQAAAAAAAAD2/yAAAQAAAAAAAAD2/yEAAQAAAAAAAAD2/yIAAQAAAAAAAAD2/yMAAQAAAAAAAAD2/yQAAQAAAAAAAAD2/yUAAQAAAAAAAAD2/yYAAQAAAAAAAAD2/ycAAQAAAAAAAAD2/ygAAQAAAAAAAAD2/ykAAQAAAAAAAAD3/xkAAQAAAAAAAAD3/xoAAQAAAAAAAAD3/xsAAQAAAAAAAAD3/xwAAQAAAAAAAAD3/x0AAQAAAAAAAAD3/x4AAQAAAAAAAAD3/x8AAQAAAAAAAAD3/yAAAQAAAAAAAAD3/yEAAQAAAAAAAAD3/yIAAQAAAAAAAAD3/yMAAQAAAAAAAAD3/yQAAQAAAAAAAAD3/yUAAQAAAAAAAAD3/yYAAQAAAAAAAAD3/ycAAQAAAAAAAAD3/ygAAQAAAAAAAAD3/ykAAQAAAAAAAAD4/xkAAQAAAAAAAAD4/xoAAQAAAAAAAAD4/xsAAQAAAAAAAAD4/xwAAQAAAAAAAAD4/x0AAQAAAAAAAAD4/x4AAQAAAAAAAAD4/x8AAQAAAAAAAAD4/yAAAQAAAAAAAAD4/yEAAQAAAAAAAAD4/yIAAQAAAAAAAAD4/yMAAQAAAAAAAAD4/yQAAQAAAAAAAAD4/yUAAQAAAAAAAAD4/yYAAQAAAAAAAAD4/ycAAQAAAAAAAAD4/ygAAQAAAAAAAAD4/ykAAQAAAAAAAAD5/xkAAQAAAAAAAAD5/xoAAQAAAAAAAAD5/xsAAQAAAAAAAAD5/xwAAQAAAAAAAAD5/x0AAQAAAAAAAAD5/x4AAQAAAAAAAAD5/x8AAQAAAAAAAAD5/yAAAQAAAAAAAAD5/yEAAQAAAAAAAAD5/yIAAQAAAAAAAAD5/yMAAQAAAAAAAAD5/yQAAQAAAAAAAAD5/yUAAQAAAAAAAAD5/yYAAQAAAAAAAAD5/ycAAQAAAAAAAAD5/ygAAQAAAAAAAAD5/ykAAQAAAAAAAAD6/xkAAQAAAAAAAAD6/xoAAQAAAAAAAAD6/xsAAQAAAAAAAAD6/xwAAQAAAAAAAAD6/x0AAQAAAAAAAAD6/x4AAQAAAAAAAAD6/x8AAQAAAAAAAAD6/yAAAQAAAAAAAAD6/yEAAQAAAAAAAAD6/yIAAQAAAAAAAAD6/yMAAQAAAAAAAAD6/yQAAQAAAAAAAAD6/yUAAQAAAAAAAAD6/yYAAQAAAAAAAAD6/ycAAQAAAAAAAAD6/ygAAQAAAAAAAAD6/ykAAQAAAAAAAAD7/xkAAQAAAAAAAAD7/xoAAQAAAAAAAAD7/xsAAQAAAAAAAAD7/xwAAQAAAAAAAAD7/x0AAQAAAAAAAAD7/x4AAQAAAAAAAAD7/x8AAQAAAAAAAAD7/yAAAQAAAAAAAAD7/yEAAQAAAAAAAAD7/yIAAQAAAAAAAAD7/yMAAQAAAAAAAAD7/yQAAQAAAAAAAAD7/yUAAQAAAAAAAAD7/yYAAQAAAAAAAAD7/ycAAQAAAAAAAAD7/ygAAQAAAAAAAAD7/ykAAQAAAAAAAAD8/xkAAQAAAAAAAAD8/xoAAQAAAAAAAAD8/xsAAQAAAAAAAAD8/xwAAQAAAAAAAAD8/x0AAQAAAAAAAAD8/x4AAQAAAAAAAAD8/x8AAQAAAAAAAAD8/yAAAQAAAAAAAAD8/yEAAQAAAAAAAAD8/yIAAQAAAAAAAAD8/yMAAQAAAAAAAAD8/yQAAQAAAAAAAAD8/yUAAQAAAAAAAAD8/yYAAQAAAAAAAAD8/ycAAQAAAAAAAAD8/ygAAQAAAAAAAAD8/ykAAQAAAAAAAAD9/xkAAQAAAAAAAAD9/xoAAQAAAAAAAAD9/xsAAQAAAAAAAAD9/xwAAQAAAAAAAAD9/x0AAQAAAAAAAAD9/x4AAQAAAAAAAAD9/x8AAQAAAAAAAAD9/yAAAQAAAAAAAAD9/yEAAQAAAAAAAAD9/yIAAQAAAAAAAAD9/yMAAQAAAAAAAAD9/yQAAQAAAAAAAAD9/yUAAQAAAAAAAAD9/yYAAQAAAAAAAAD9/ycAAQAAAAAAAAD9/ygAAQAAAAAAAAD9/ykAAQAAAAAAAAD+/xkAAQAAAAAAAAD+/xoAAQAAAAAAAAD+/xsAAQAAAAAAAAD+/x0AAQAAAAAAAAD+/x4AAQAAAAAAAAD+/x8AAQAAAAAAAAD+/yAAAQAAAAAAAAD+/yEAAQAAAAAAAAD+/yIAAQAAAAAAAAD+/yMAAQAAAAAAAAD+/yQAAQAAAAAAAAD+/yUAAQAAAAAAAAD+/yYAAQAAAAAAAAD+/ycAAQAAAAAAAAD+/ygAAQAAAAAAAAD+/ykAAQAAAAAAAAD//xkAAQAAAAAAAAD//xoAAQAAAAAAAAD//xsAAQAAAAAAAAD//x0AAQAAAAAAAAD//x4AAQAAAAAAAAD//x8AAQAAAAAAAAD//yAAAQAAAAAAAAD//yEAAQAAAAAAAAD//yIAAQAAAAAAAAD//yMAAQAAAAAAAAD//yQAAQAAAAAAAAD//yUAAQAAAAAAAAD//yYAAQAAAAAAAAD//ycAAQAAAAAAAAD//ygAAQAAAAAAAAD//ykAAQAAAAAAAAAAABkAAQAAAAAAAAAAABoAAQAAAAAAAAAAABsAAQAAAAAAAAAAAB0AAQAAAAAAAAAAAB4AAQAAAAAAAAAAAB8AAQAAAAAAAAAAACAAAQAAAAAAAAAAACEAAQAAAAAAAAAAACIAAQAAAAAAAAAAACMAAQAAAAAAAAAAACQAAQAAAAAAAAAAACUAAQAAAAAAAAAAACYAAQAAAAAAAAAAACcAAQAAAAAAAAAAACgAAQAAAAAAAAAAACkAAQAAAAAAAAABABkAAQAAAAAAAAABABoAAQAAAAAAAAABABsAAQAAAAAAAAABAB0AAQAAAAAAAAABAB4AAQAAAAAAAAABAB8AAQAAAAAAAAABACAAAQAAAAAAAAABACEAAQAAAAAAAAABACIAAQAAAAAAAAABACMAAQAAAAAAAAABACQAAQAAAAAAAAABACUAAQAAAAAAAAABACYAAQAAAAAAAAABACcAAQAAAAAAAAABACgAAQAAAAAAAAABACkAAQAAAAAAAAACABkAAQAAAAAAAAACABoAAQAAAAAAAAACABsAAQAAAAAAAAACAB0AAQAAAAAAAAACAB4AAQAAAAAAAAACAB8AAQAAAAAAAAACACAAAQAAAAAAAAACACEAAQAAAAAAAAACACIAAQAAAAAAAAACACMAAQAAAAAAAAACACQAAQAAAAAAAAACACUAAQAAAAAAAAACACYAAQAAAAAAAAACACcAAQAAAAAAAAACACgAAQAAAAAAAAACACkAAQAAAAAAAAADABkAAQAAAAAAAAADABoAAQAAAAAAAAADABsAAQAAAAAAAAADAB0AAQAAAAAAAAADAB4AAQAAAAAAAAADAB8AAQAAAAAAAAADACAAAQAAAAAAAAADACEAAQAAAAAAAAADACIAAQAAAAAAAAADACMAAQAAAAAAAAADACQAAQAAAAAAAAADACUAAQAAAAAAAAADACYAAQAAAAAAAAADACcAAQAAAAAAAAADACgAAQAAAAAAAAADACkAAQAAAAAAAAAEABkAAQAAAAAAAAAEABoAAQAAAAAAAAAEABsAAQAAAAAAAAAEAB0AAQAAAAAAAAAEAB4AAQAAAAAAAAAEAB8AAQAAAAAAAAAEACAAAQAAAAAAAAAEACEAAQAAAAAAAAAEACIAAQAAAAAAAAAEACMAAQAAAAAAAAAEACQAAQAAAAAAAAAEACUAAQAAAAAAAAAEACYAAQAAAAAAAAAEACcAAQAAAAAAAAAEACgAAQAAAAAAAAAEACkAAQAAAAAAAAAFABkAAQAAAAAAAAAFABoAAQAAAAAAAAAFABsAAQAAAAAAAAAFAB0AAQAAAAAAAAAFAB4AAQAAAAAAAAAFAB8AAQAAAAAAAAAFACAAAQAAAAAAAAAFACEAAQAAAAAAAAAFACIAAQAAAAAAAAAFACMAAQAAAAAAAAAFACQAAQAAAAAAAAAFACUAAQAAAAAAAAAFACYAAQAAAAAAAAAFACcAAQAAAAAAAAAFACgAAQAAAAAAAAAFACkAAQAAAAAAAAAGABkAAQAAAAAAAAAGABoAAQAAAAAAAAAGABsAAQAAAAAAAAAGAB0AAQAAAAAAAAAGAB4AAQAAAAAAAAAGAB8AAQAAAAAAAAAGACAAAQAAAAAAAAAGACEAAQAAAAAAAAAGACIAAQAAAAAAAAAGACMAAQAAAAAAAAAGACQAAQAAAAAAAAAGACUAAQAAAAAAAAAGACYAAQAAAAAAAAAGACcAAQAAAAAAAAAGACgAAQAAAAAAAAAGACkAAQAAAAAAAAAHABkAAQAAAAAAAAAHABoAAQAAAAAAAAAHABsAAQAAAAAAAAAHAB0AAQAAAAAAAAAHAB4AAQAAAAAAAAAHAB8AAQAAAAAAAAAHACAAAQAAAAAAAAAHACEAAQAAAAAAAAAHACIAAQAAAAAAAAAHACMAAQAAAAAAAAAHACQAAQAAAAAAAAAHACUAAQAAAAAAAAAHACYAAQAAAAAAAAAHACcAAQAAAAAAAAAHACgAAQAAAAAAAAAHACkAAQAAAAAAAAAIABkAAQAAAAAAAAAIABoAAQAAAAAAAAAIABsAAQAAAAAAAAAIAB0AAQAAAAAAAAAIAB4AAQAAAAAAAAAIAB8AAQAAAAAAAAAIACAAAQAAAAAAAAAIACEAAQAAAAAAAAAIACIAAQAAAAAAAAAIACMAAQAAAAAAAAAIACQAAQAAAAAAAAAIACUAAQAAAAAAAAAIACYAAQAAAAAAAAAIACcAAQAAAAAAAAAIACgAAQAAAAAAAAAIACkAAQAAAAAAAAAJABkAAQAAAAAAAAAJABoAAQAAAAAAAAAJABsAAQAAAAAAAAAJAB0AAQAAAAAAAAAJAB4AAQAAAAAAAAAJAB8AAQAAAAAAAAAJACAAAQAAAAAAAAAJACEAAQAAAAAAAAAJACIAAQAAAAAAAAAJACMAAQAAAAAAAAAJACQAAQAAAAAAAAAJACUAAQAAAAAAAAAJACYAAQAAAAAAAAAJACcAAQAAAAAAAAAJACgAAQAAAAAAAAAJACkAAQAAAAAAAAAKABkAAQAAAAAAAAAKABoAAQAAAAAAAAAKABsAAQAAAAAAAAAKAB0AAQAAAAAAAAAKAB4AAQAAAAAAAAAKAB8AAQAAAAAAAAAKACAAAQAAAAAAAAAKACEAAQAAAAAAAAAKACIAAQAAAAAAAAAKACMAAQAAAAAAAAAKACQAAQAAAAAAAAAKACUAAQAAAAAAAAAKACYAAQAAAAAAAAAKACcAAQAAAAAAAAAKACgAAQAAAAAAAAAKACkAAQAAAAAAAAALABkAAQAAAAAAAAALABoAAQAAAAAAAAALABsAAQAAAAAAAAALAB0AAQAAAAAAAAALAB4AAQAAAAAAAAALAB8AAQAAAAAAAAALACAAAQAAAAAAAAALACEAAQAAAAAAAAALACIAAQAAAAAAAAALACMAAQAAAAAAAAALACQAAQAAAAAAAAALACUAAQAAAAAAAAALACYAAQAAAAAAAAALACcAAQAAAAAAAAALACgAAQAAAAAAAAALACkAAQAAAAAAAAAMABkAAQAAAAAAAAAMABoAAQAAAAAAAAAMABsAAQAAAAAAAAAMAB0AAQAAAAAAAAAMAB4AAQAAAAAAAAAMAB8AAQAAAAAAAAAMACAAAQAAAAAAAAAMACEAAQAAAAAAAAAMACIAAQAAAAAAAAAMACMAAQAAAAAAAAAMACQAAQAAAAAAAAAMACUAAQAAAAAAAAAMACYAAQAAAAAAAAAMACcAAQAAAAAAAAAMACgAAQAAAAAAAAAMACkAAQAAAAAAAAANABkAAQAAAAAAAAANABoAAQAAAAAAAAANABsAAQAAAAAAAAANAB0AAQAAAAAAAAANAB4AAQAAAAAAAAANAB8AAQAAAAAAAAANACAAAQAAAAAAAAANACEAAQAAAAAAAAANACIAAQAAAAAAAAANACMAAQAAAAAAAAANACQAAQAAAAAAAAANACUAAQAAAAAAAAANACYAAQAAAAAAAAANACcAAQAAAAAAAAANACgAAQAAAAAAAAANACkAAQAAAAAAAAAOABkAAQAAAAAAAAAOABoAAQAAAAAAAAAOABsAAQAAAAAAAAAOAB0AAQAAAAAAAAAOAB4AAQAAAAAAAAAOAB8AAQAAAAAAAAAOACAAAQAAAAAAAAAOACEAAQAAAAAAAAAOACIAAQAAAAAAAAAOACMAAQAAAAAAAAAOACQAAQAAAAAAAAAOACUAAQAAAAAAAAAOACYAAQAAAAAAAAAOACcAAQAAAAAAAAAOACgAAQAAAAAAAAAOACkAAQAAAAAAAAAPABkAAQAAAAAAAAAPABoAAQAAAAAAAAAPABsAAQAAAAAAAAAPABwAAQAAAAAAAAAPAB0AAQAAAAAAAAAPAB4AAQAAAAAAAAAPAB8AAQAAAAAAAAAPACAAAQAAAAAAAAAPACEAAQAAAAAAAAAPACIAAQAAAAAAAAAPACMAAQAAAAAAAAAPACQAAQAAAAAAAAAPACUAAQAAAAAAAAAPACYAAQAAAAAAAAAPACcAAQAAAAAAAAAPACgAAQAAAAAAAAAPACkAAQAAAAAAAAAQABkAAQAAAAAAAAAQABoAAQAAAAAAAAAQABsAAQAAAAAAAAAQABwAAQAAAAAAAAAQAB0AAQAAAAAAAAAQAB4AAQAAAAAAAAAQAB8AAQAAAAAAAAAQACAAAQAAAAAAAAAQACEAAQAAAAAAAAAQACIAAQAAAAAAAAAQACMAAQAAAAAAAAAQACQAAQAAAAAAAAAQACUAAQAAAAAAAAAQACYAAQAAAAAAAAAQACcAAQAAAAAAAAAQACgAAQAAAAAAAAAQACkAAQAAAAAAAAANAOL/AQAAAAAAAAANAOP/AQAAAAAAAAANAOT/AQAAAAAAAAANAOX/AQAAAAAAAAANAOb/AQAAAAAAAAANAOf/AQAAAAAAAAANAOj/AQAAAAAAAAANAOn/AQAAAAAAAAANAOr/AQAAAAAAAAANAOv/AQAAAAAAAAANAOz/AQAAAAAAAAANAO3/AQAAAAAAAAANAO7/AQAAAAAAAAANAO//AQAAAAAAAAANAPD/AQAAAAAAAAANAPH/AQAAAAAAAAANAPL/AQAAAAAAAAANAPP/AQAAAAAAAAANAPT/AQAAAAAAAAANAPX/AQAAAAAAAAANAPb/AQAAAAAAAAANAPf/AQAAAAAAAAANAPj/AQAAAAAAAAANAPn/AQAAAAAAAAANAPr/AQAAAAAAAAANAPv/AQAAAAAAAAANAPz/AQAAAAAAAAANAP3/AQAAAAAAAAANAP7/AQAAAAAAAAANAP//AQAAAAAAAAANAAAAAQAAAAAAAAANAAEAAQAAAAAAAAANAAIAAQAAAAAAAAANAAMAAQAAAAAAAAANAAQAAQAAAAAAAAANAAUAAQAAAAAAAAANAAYAAQAAAAAAAAANAAcAAQAAAAAAAAANAAgAAQAAAAAAAAANAAkAAQAAAAAAAAANAAoAAQAAAAAAAAANAAsAAQAAAAAAAAANAAwAAQAAAAAAAAANAA0AAQAAAAAAAAANAA4AAQAAAAAAAAANAA8AAQAAAAAAAAANABAAAQAAAAAAAAANABEAAQAAAAAAAAANABIAAQAAAAAAAAANABMAAQAAAAAAAAANABQAAQAAAAAAAAANABUAAQAAAAAAAAANABYAAQAAAAAAAAANABcAAQAAAAAAAAANABgAAQAAAAAAAAAOAOL/AQAAAAAAAAAOAOP/AQAAAAAAAAAOAOT/AQAAAAAAAAAOAOX/AQAAAAAAAAAOAOb/AQAAAAAAAAAOAOf/AQAAAAAAAAAOAOj/AQAAAAAAAAAOAOn/AQAAAAAAAAAOAOr/AQAAAAAAAAAOAOv/AQAAAAAAAAAOAOz/AQAAAAAAAAAOAO3/AQAAAAAAAAAOAO7/AQAAAAAAAAAOAO//AQAAAAAAAAAOAPD/AQAAAAAAAAAOAPH/AQAAAAAAAAAOAPL/AQAAAAAAAAAOAPP/AQAAAAAAAAAOAPT/AQAAAAAAAAAOAPX/AQAAAAAAAAAOAPb/AQAAAAAAAAAOAPf/AQAAAAAAAAAOAPj/AQAAAAAAAAAOAPn/AQAAAAAAAAAOAPr/AQAAAAAAAAAOAPv/AQAAAAAAAAAOAPz/AQAAAAAAAAAOAP3/AQAAAAAAAAAOAP7/AQAAAAAAAAAOAP//AQAAAAAAAAAOAAAAAQAAAAAAAAAOAAEAAQAAAAAAAAAOAAIAAQAAAAAAAAAOAAMAAQAAAAAAAAAOAAQAAQAAAAAAAAAOAAUAAQAAAAAAAAAOAAYAAQAAAAAAAAAOAAcAAQAAAAAAAAAOAAgAAQAAAAAAAAAOAAkAAQAAAAAAAAAOAAoAAQAAAAAAAAAOAAsAAQAAAAAAAAAOAAwAAQAAAAAAAAAOAA0AAQAAAAAAAAAOAA4AAQAAAAAAAAAOAA8AAQAAAAAAAAAOABAAAQAAAAAAAAAOABEAAQAAAAAAAAAOABIAAQAAAAAAAAAOABMAAQAAAAAAAAAOABQAAQAAAAAAAAAOABUAAQAAAAAAAAAOABYAAQAAAAAAAAAOABcAAQAAAAAAAAAOABgAAQAAAAAAAAAPAOL/AQAAAAAAAAAPAOP/AQAAAAAAAAAPAOT/AQAAAAAAAAAPAOX/AQAAAAAAAAAPAOb/AQAAAAAAAAAPAOf/AQAAAAAAAAAPAOj/AQAAAAAAAAAPAOn/AQAAAAAAAAAPAOr/AQAAAAAAAAAPAOv/AQAAAAAAAAAPAOz/AQAAAAAAAAAPAO3/AQAAAAAAAAAPAO7/AQAAAAAAAAAPAO//AQAAAAAAAAAPAPD/AQAAAAAAAAAPAPH/AQAAAAAAAAAPAPL/AQAAAAAAAAAPAPP/AQAAAAAAAAAPAPT/AQAAAAAAAAAPAPX/AQAAAAAAAAAPAPb/AQAAAAAAAAAPAPf/AQAAAAAAAAAPAPj/AQAAAAAAAAAPAPn/AQAAAAAAAAAPAPr/AQAAAAAAAAAPAPv/AQAAAAAAAAAPAPz/AQAAAAAAAAAPAP3/AQAAAAAAAAAPAP7/AQAAAAAAAAAPAP//AQAAAAAAAAAPAAAAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAIAAQAAAAAAAAAPAAMAAQAAAAAAAAAPAAQAAQAAAAAAAAAPAAUAAQAAAAAAAAAPAAYAAQAAAAAAAAAPAAcAAQAAAAAAAAAPAAgAAQAAAAAAAAAPAAkAAQAAAAAAAAAPAAoAAQAAAAAAAAAPAAsAAQAAAAAAAAAPAAwAAQAAAAAAAAAPAA0AAQAAAAAAAAAPAA4AAQAAAAAAAAAPAA8AAQAAAAAAAAAPABAAAQAAAAAAAAAPABEAAQAAAAAAAAAPABIAAQAAAAAAAAAPABMAAQAAAAAAAAAPABQAAQAAAAAAAAAPABUAAQAAAAAAAAAPABYAAQAAAAAAAAAPABcAAQAAAAAAAAAPABgAAQAAAAAAAAAQAOL/AQAAAAAAAAAQAOP/AQAAAAAAAAAQAOT/AQAAAAAAAAAQAOX/AQAAAAAAAAAQAOb/AQAAAAAAAAAQAOf/AQAAAAAAAAAQAOj/AQAAAAAAAAAQAOn/AQAAAAAAAAAQAOr/AQAAAAAAAAAQAOv/AQAAAAAAAAAQAOz/AQAAAAAAAAAQAO3/AQAAAAAAAAAQAO7/AQAAAAAAAAAQAO//AQAAAAAAAAAQAPD/AQAAAAAAAAAQAPH/AQAAAAAAAAAQAPL/AQAAAAAAAAAQAPP/AQAAAAAAAAAQAPT/AQAAAAAAAAAQAPX/AQAAAAAAAAAQAPb/AQAAAAAAAAAQAPf/AQAAAAAAAAAQAPj/AQAAAAAAAAAQAPn/AQAAAAAAAAAQAPr/AQAAAAAAAAAQAPv/AQAAAAAAAAAQAPz/AQAAAAAAAAAQAP3/AQAAAAAAAAAQAP7/AQAAAAAAAAAQAP//AQAAAAAAAAAQAAAAAQAAAAAAAAAQAAEAAQAAAAAAAAAQAAIAAQAAAAAAAAAQAAMAAQAAAAAAAAAQAAQAAQAAAAAAAAAQAAUAAQAAAAAAAAAQAAYAAQAAAAAAAAAQAAcAAQAAAAAAAAAQAAgAAQAAAAAAAAAQAAkAAQAAAAAAAAAQAAoAAQAAAAAAAAAQAAsAAQAAAAAAAAAQAAwAAQAAAAAAAAAQAA0AAQAAAAAAAAAQAA4AAQAAAAAAAAAQAA8AAQAAAAAAAAAQABAAAQAAAAAAAAAQABEAAQAAAAAAAAAQABIAAQAAAAAAAAAQABMAAQAAAAAAAAAQABQAAQAAAAAAAAAQABUAAQAAAAAAAAAQABYAAQAAAAAAAAAQABcAAQAAAAAAAAAQABgAAQAAAAAAAAARAOL/AQAAAAAAAAARAOP/AQAAAAAAAAARAOT/AQAAAAAAAAARAOX/AQAAAAAAAAARAOb/AQAAAAAAAAARAOf/AQAAAAAAAAARAOj/AQAAAAAAAAARAOn/AQAAAAAAAAARAOr/AQAAAAAAAAARAOv/AQAAAAAAAAARAOz/AQAAAAAAAAARAO3/AQAAAAAAAAARAO7/AQAAAAAAAAARAO//AQAAAAAAAAARAPD/AQAAAAAAAAARAPH/AQAAAAAAAAARAPL/AQAAAAAAAAARAPP/AQAAAAAAAAARAPT/AQAAAAAAAAARAPX/AQAAAAAAAAARAPb/AQAAAAAAAAARAPf/AQAAAAAAAAARAPj/AQAAAAAAAAARAPn/AQAAAAAAAAARAPr/AQAAAAAAAAARAPv/AQAAAAAAAAARAPz/AQAAAAAAAAARAP3/AQAAAAAAAAARAP7/AQAAAAAAAAARAP//AQAAAAAAAAARAAAAAQAAAAAAAAARAAEAAQAAAAAAAAARAAIAAQAAAAAAAAARAAMAAQAAAAAAAAARAAQAAQAAAAAAAAARAAUAAQAAAAAAAAARAAYAAQAAAAAAAAARAAcAAQAAAAAAAAARAAgAAQAAAAAAAAARAAkAAQAAAAAAAAARAAoAAQAAAAAAAAARAAsAAQAAAAAAAAARAAwAAQAAAAAAAAARAA0AAQAAAAAAAAARAA4AAQAAAAAAAAARAA8AAQAAAAAAAAARABAAAQAAAAAAAAARABEAAQAAAAAAAAARABIAAQAAAAAAAAARABMAAQAAAAAAAAARABQAAQAAAAAAAAARABUAAQAAAAAAAAARABYAAQAAAAAAAAARABcAAQAAAAAAAAARABgAAQAAAAAAAAARABkAAQAAAAAAAAARABoAAQAAAAAAAAARABsAAQAAAAAAAAARABwAAQAAAAAAAAARAB0AAQAAAAAAAAARAB4AAQAAAAAAAAARAB8AAQAAAAAAAAARACAAAQAAAAAAAAARACEAAQAAAAAAAADz/9b/AQAAAAAAAADz/9f/AQAAAAAAAADz/9j/AQAAAAAAAADz/9n/AQAAAAAAAADz/9r/AQAAAAAAAADz/9v/AQAAAAAAAADz/9z/AQAAAAAAAADz/93/AQAAAAAAAADz/97/AQAAAAAAAADz/9//AQAAAAAAAADz/+D/AQAAAAAAAADz/+H/AQAAAAAAAADz/+L/AQAAAAAAAADz/+P/AQAAAAAAAADz/+T/AQAAAAAAAAD0/9b/AQAAAAAAAAD0/9f/AQAAAAAAAAD0/9j/AQAAAAAAAAD0/9n/AQAAAAAAAAD0/9r/AQAAAAAAAAD0/9v/AQAAAAAAAAD0/9z/AQAAAAAAAAD0/93/AQAAAAAAAAD0/97/AQAAAAAAAAD0/9//AQAAAAAAAAD0/+D/AQAAAAAAAAD0/+H/AQAAAAAAAAD0/+L/AQAAAAAAAAD0/+P/AQAAAAAAAAD0/+T/AQAAAAAAAAD1/9b/AQAAAAAAAAD1/9f/AQAAAAAAAAD1/9j/AQAAAAAAAAD1/9n/AQAAAAAAAAD1/9r/AQAAAAAAAAD1/9v/AQAAAAAAAAD1/9z/AQAAAAAAAAD1/93/AQAAAAAAAAD1/97/AQAAAAAAAAD1/9//AQAAAAAAAAD1/+D/AQAAAAAAAAD1/+H/AQAAAAAAAAD1/+L/AQAAAAAAAAD1/+P/AQAAAAAAAAD1/+T/AQAAAAAAAAD2/9b/AQAAAAAAAAD2/9f/AQAAAAAAAAD2/9j/AQAAAAAAAAD2/9n/AQAAAAAAAAD2/9r/AQAAAAAAAAD2/9v/AQAAAAAAAAD2/9z/AQAAAAAAAAD2/93/AQAAAAAAAAD2/97/AQAAAAAAAAD2/9//AQAAAAAAAAD2/+D/AQAAAAAAAAD2/+H/AQAAAAAAAAD2/+L/AQAAAAAAAAD2/+P/AQAAAAAAAAD2/+T/AQAAAAAAAAD3/9b/AQAAAAAAAAD3/9f/AQAAAAAAAAD3/9j/AQAAAAAAAAD3/9n/AQAAAAAAAAD3/9r/AQAAAAAAAAD3/9v/AQAAAAAAAAD3/9z/AQAAAAAAAAD3/93/AQAAAAAAAAD3/97/AQAAAAAAAAD3/9//AQAAAAAAAAD3/+D/AQAAAAAAAAD3/+H/AQAAAAAAAAD3/+L/AQAAAAAAAAD3/+P/AQAAAAAAAAD3/+T/AQAAAAAAAAD4/9b/AQAAAAAAAAD4/9f/AQAAAAAAAAD4/9j/AQAAAAAAAAD4/9n/AQAAAAAAAAD4/9r/AQAAAAAAAAD4/9v/AQAAAAAAAAD4/9z/AQAAAAAAAAD4/93/AQAAAAAAAAD4/97/AQAAAAAAAAD4/9//AQAAAAAAAAD4/+D/AQAAAAAAAAD4/+H/AQAAAAAAAAD4/+L/AQAAAAAAAAD4/+P/AQAAAAAAAAD4/+T/AQAAAAAAAAD5/9b/AQAAAAAAAAD5/9f/AQAAAAAAAAD5/9j/AQAAAAAAAAD5/9n/AQAAAAAAAAD5/9r/AQAAAAAAAAD5/9v/AQAAAAAAAAD5/9z/AQAAAAAAAAD5/93/AQAAAAAAAAD5/97/AQAAAAAAAAD5/9//AQAAAAAAAAD5/+D/AQAAAAAAAAD5/+H/AQAAAAAAAAD5/+L/AQAAAAAAAAD5/+P/AQAAAAAAAAD5/+T/AQAAAAAAAAD6/9b/AQAAAAAAAAD6/9f/AQAAAAAAAAD6/9j/AQAAAAAAAAD6/9n/AQAAAAAAAAD6/9r/AQAAAAAAAAD6/9v/AQAAAAAAAAD6/9z/AQAAAAAAAAD6/93/AQAAAAAAAAD6/97/AQAAAAAAAAD6/9//AQAAAAAAAAD6/+D/AQAAAAAAAAD6/+H/AQAAAAAAAAD6/+L/AQAAAAAAAAD6/+P/AQAAAAAAAAD6/+T/AQAAAAAAAAD7/9b/AQAAAAAAAAD7/9f/AQAAAAAAAAD7/9j/AQAAAAAAAAD7/9n/AQAAAAAAAAD7/9r/AQAAAAAAAAD7/9v/AQAAAAAAAAD7/9z/AQAAAAAAAAD7/93/AQAAAAAAAAD7/97/AQAAAAAAAAD7/9//AQAAAAAAAAD7/+D/AQAAAAAAAAD7/+H/AQAAAAAAAAD7/+L/AQAAAAAAAAD7/+P/AQAAAAAAAAD7/+T/AQAAAAAAAAD8/9b/AQAAAAAAAAD8/9f/AQAAAAAAAAD8/9j/AQAAAAAAAAD8/9n/AQAAAAAAAAD8/9r/AQAAAAAAAAD8/9v/AQAAAAAAAAD8/9z/AQAAAAAAAAD8/93/AQAAAAAAAAD8/97/AQAAAAAAAAD8/9//AQAAAAAAAAD8/+D/AQAAAAAAAAD8/+H/AQAAAAAAAAD8/+L/AQAAAAAAAAD8/+P/AQAAAAAAAAD8/+T/AQAAAAAAAAD9/9b/AQAAAAAAAAD9/9f/AQAAAAAAAAD9/9j/AQAAAAAAAAD9/9n/AQAAAAAAAAD9/9r/AQAAAAAAAAD9/9v/AQAAAAAAAAD9/9z/AQAAAAAAAAD9/93/AQAAAAAAAAD9/97/AQAAAAAAAAD9/9//AQAAAAAAAAD9/+D/AQAAAAAAAAD9/+H/AQAAAAAAAAD9/+L/AQAAAAAAAAD9/+P/AQAAAAAAAAD9/+T/AQAAAAAAAAD+/9b/AQAAAAAAAAD+/9f/AQAAAAAAAAD+/9j/AQAAAAAAAAD+/9n/AQAAAAAAAAD+/9r/AQAAAAAAAAD+/9v/AQAAAAAAAAD+/9z/AQAAAAAAAAD+/93/AQAAAAAAAAD+/97/AQAAAAAAAAD+/9//AQAAAAAAAAD+/+D/AQAAAAAAAAD+/+H/AQAAAAAAAAD+/+L/AQAAAAAAAAD+/+P/AQAAAAAAAAD+/+T/AQAAAAAAAAD//9b/AQAAAAAAAAD//9f/AQAAAAAAAAD//9j/AQAAAAAAAAD//9n/AQAAAAAAAAD//9r/AQAAAAAAAAD//9v/AQAAAAAAAAD//9z/AQAAAAAAAAD//93/AQAAAAAAAAD//97/AQAAAAAAAAD//9//AQAAAAAAAAD//+D/AQAAAAAAAAD//+H/AQAAAAAAAAD//+L/AQAAAAAAAAD//+P/AQAAAAAAAAD//+T/AQAAAAAAAAAAANb/AQAAAAAAAAAAANf/AQAAAAAAAAAAANj/AQAAAAAAAAAAANn/AQAAAAAAAAAAANr/AQAAAAAAAAAAANv/AQAAAAAAAAAAANz/AQAAAAAAAAAAAN3/AQAAAAAAAAAAAN7/AQAAAAAAAAAAAN//AQAAAAAAAAAAAOD/AQAAAAAAAAAAAOH/AQAAAAAAAAAAAOL/AQAAAAAAAAAAAOP/AQAAAAAAAAAAAOT/AQAAAAAAAAABANb/AQAAAAAAAAABANf/AQAAAAAAAAABANj/AQAAAAAAAAABANn/AQAAAAAAAAABANr/AQAAAAAAAAABANv/AQAAAAAAAAABANz/AQAAAAAAAAABAN3/AQAAAAAAAAABAN7/AQAAAAAAAAABAN//AQAAAAAAAAABAOD/AQAAAAAAAAABAOH/AQAAAAAAAAABAOL/AQAAAAAAAAABAOP/AQAAAAAAAAABAOT/AQAAAAAAAAACANb/AQAAAAAAAAACANf/AQAAAAAAAAACANj/AQAAAAAAAAACANn/AQAAAAAAAAACANr/AQAAAAAAAAACANv/AQAAAAAAAAACANz/AQAAAAAAAAACAN3/AQAAAAAAAAACAN7/AQAAAAAAAAACAN//AQAAAAAAAAACAOD/AQAAAAAAAAACAOH/AQAAAAAAAAACAOL/AQAAAAAAAAACAOP/AQAAAAAAAAACAOT/AQAAAAAAAAADANb/AQAAAAAAAAADANf/AQAAAAAAAAADANj/AQAAAAAAAAADANn/AQAAAAAAAAADANr/AQAAAAAAAAADANv/AQAAAAAAAAADANz/AQAAAAAAAAADAN3/AQAAAAAAAAADAN7/AQAAAAAAAAADAN//AQAAAAAAAAADAOD/AQAAAAAAAAADAOH/AQAAAAAAAAADAOL/AQAAAAAAAAADAOP/AQAAAAAAAAADAOT/AQADAAAAAAAEANb/AQAAAAAAAAAEANf/AQAAAAAAAAAEANj/AQAAAAAAAAAEANn/AQAAAAAAAAAEANr/AQAAAAAAAAAEANv/AQAAAAAAAAAEANz/AQAAAAAAAAAEAN3/AQAAAAAAAAAEAN7/AQAAAAAAAAAEAN//AQAAAAAAAAAEAOD/AQAAAAAAAAAEAOH/AQAAAAAAAAAEAOL/AQAAAAAAAAAEAOP/AQAAAAAAAAAEAOT/AQAAAAAAAAAFANb/AQAAAAAAAAAFANf/AQAAAAAAAAAFANj/AQAAAAAAAAAFANn/AQAAAAAAAAAFANr/AQAAAAAAAAAFANv/AQAAAAAAAAAFANz/AQAAAAAAAAAFAN3/AQAAAAAAAAAFAN7/AQAAAAAAAAAFAN//AQAAAAAAAAAFAOD/AQAAAAAAAAAFAOH/AQAAAAAAAAAFAOL/AQAAAAAAAAAFAOP/AQAAAAAAAAAFAOT/AQAAAAAAAAAGANb/AQAAAAAAAAAGANf/AQAAAAAAAAAGANj/AQAAAAAAAAAGANn/AQAAAAAAAAAGANr/AQAAAAAAAAAGANv/AQAAAAAAAAAGANz/AQAAAAAAAAAGAN3/AQAAAAAAAAAGAN7/AQAAAAAAAAAGAN//AQAAAAAAAAAGAOD/AQAAAAAAAAAGAOH/AQAAAAAAAAAGAOL/AQAAAAAAAAAGAOP/AQAAAAAAAAAGAOT/AQAAAAAAAAAHANb/AQAAAAAAAAAHANf/AQAAAAAAAAAHANj/AQAAAAAAAAAHANn/AQAAAAAAAAAHANr/AQAAAAAAAAAHANv/AQAAAAAAAAAHANz/AQAAAAAAAAAHAN3/AQAAAAAAAAAHAN7/AQAAAAAAAAAHAN//AQAAAAAAAAAHAOD/AQAAAAAAAAAHAOH/AQAAAAAAAAAHAOL/AQAAAAAAAAAHAOP/AQAAAAAAAAAHAOT/AQAAAAAAAAAIANb/AQAAAAAAAAAIANf/AQAAAAAAAAAIANj/AQAAAAAAAAAIANn/AQAAAAAAAAAIANr/AQAAAAAAAAAIANv/AQAAAAAAAAAIANz/AQAAAAAAAAAIAN3/AQAAAAAAAAAIAN7/AQAAAAAAAAAIAN//AQAAAAAAAAAIAOD/AQAAAAAAAAAIAOH/AQAAAAAAAAAIAOL/AQAAAAAAAAAIAOP/AQAAAAAAAAAIAOT/AQAAAAAAAAAJANb/AQAAAAAAAAAJANf/AQAAAAAAAAAJANj/AQAAAAAAAAAJANn/AQAAAAAAAAAJANr/AQAAAAAAAAAJANv/AQAAAAAAAAAJANz/AQAAAAAAAAAJAN3/AQAAAAAAAAAJAN7/AQAAAAAAAAAJAN//AQAAAAAAAAAJAOD/AQAAAAAAAAAJAOH/AQAAAAAAAAAJAOL/AQAAAAAAAAAJAOP/AQAAAAAAAAAJAOT/AQAAAAAAAAAKANb/AQAAAAAAAAAKANf/AQAAAAAAAAAKANj/AQAAAAAAAAAKANn/AQAAAAAAAAAKANr/AQAAAAAAAAAKANv/AQAAAAAAAAAKANz/AQAAAAAAAAAKAN3/AQAAAAAAAAAKAN7/AQAAAAAAAAAKAN//AQAAAAAAAAAKAOD/AQAAAAAAAAAKAOH/AQAAAAAAAAAKAOL/AQAAAAAAAAAKAOP/AQAAAAAAAAAKAOT/AQAAAAAAAAALANb/AQAAAAAAAAALANf/AQAAAAAAAAALANj/AQAAAAAAAAALANn/AQAAAAAAAAALANr/AQAAAAAAAAALANv/AQAAAAAAAAALANz/AQAAAAAAAAALAN3/AQAAAAAAAAALAN7/AQAAAAAAAAALAN//AQAAAAAAAAALAOD/AQAAAAAAAAALAOH/AQAAAAAAAAALAOL/AQAAAAAAAAALAOP/AQAAAAAAAAALAOT/AQAAAAAAAAAMANb/AQAAAAAAAAAMANf/AQAAAAAAAAAMANj/AQAAAAAAAAAMANn/AQAAAAAAAAAMANr/AQAAAAAAAAAMANv/AQAAAAAAAAAMANz/AQAAAAAAAAAMAN3/AQAAAAAAAAAMAN7/AQAAAAAAAAAMAN//AQAAAAAAAAAMAOD/AQAAAAAAAAAMAOH/AQAAAAAAAAAMAOL/AQAAAAAAAAAMAOP/AQAAAAAAAAAMAOT/AQAAAAAAAAANANb/AQAAAAAAAAANANf/AQAAAAAAAAANANj/AQAAAAAAAAANANn/AQAAAAAAAAANANr/AQAAAAAAAAANANv/AQAAAAAAAAANANz/AQAAAAAAAAANAN3/AQAAAAAAAAANAN7/AQAAAAAAAAANAN//AQAAAAAAAAANAOD/AQAAAAAAAAANAOH/AQAAAAAAAAAOANb/AQAAAAAAAAAOANf/AQAAAAAAAAAOANj/AQAAAAAAAAAOANn/AQAAAAAAAAAOANr/AQAAAAAAAAAOANv/AQAAAAAAAAAOANz/AQAAAAAAAAAOAN3/AQAAAAAAAAAOAN7/AQAAAAAAAAAOAN//AQAAAAAAAAAOAOD/AQAAAAAAAAAOAOH/AQAAAAAAAADw/9b/AQAAAAAAAADw/9f/AQAAAAAAAADw/9j/AQAAAAAAAADw/9n/AQAAAAAAAADw/9r/AQAAAAAAAADw/9v/AQAAAAAAAADw/9z/AQAAAAAAAADw/93/AQAAAAAAAADw/97/AQAAAAAAAADw/9//AQAAAAAAAADw/+D/AQAAAAAAAADw/+H/AQAAAAAAAADw/+L/AQAAAAAAAADw/+P/AQAAAAAAAADw/+T/AQAAAAAAAADw/+X/AQAAAAAAAADw/+b/AQAAAAAAAADw/+f/AQAAAAAAAADw/+j/AQAAAAAAAADw/+n/AQAAAAAAAADw/+r/AQAAAAAAAADw/+v/AQAAAAAAAADw/+z/AQAAAAAAAADw/+3/AQAAAAAAAADw/+7/AQAAAAAAAADw/+//AQAAAAAAAADw//D/AQAAAAAAAADw//H/AQAAAAAAAADw//L/AQAAAAAAAADw//P/AQAAAAAAAADw//T/AQAAAAAAAADw//X/AQAAAAAAAADw//b/AQAAAAAAAADw//f/AQAAAAAAAADw//j/AQAAAAAAAADw//n/AQAAAAAAAADw//r/AQAAAAAAAADw//v/AQAAAAAAAADw//z/AQAAAAAAAADw//3/AQAAAAAAAADw//7/AQAAAAAAAADw////AQAAAAAAAADw/wAAAQAAAAAAAADw/wEAAQAAAAAAAADw/wIAAQAAAAAAAADw/wMAAQAAAAAAAADw/wQAAQAAAAAAAADw/wUAAQAAAAAAAADw/wYAAQAAAAAAAADw/wcAAQAAAAAAAADw/wgAAQAAAAAAAADw/wkAAQAAAAAAAADw/woAAQAAAAAAAADw/wsAAQAAAAAAAADw/wwAAQAAAAAAAADw/w0AAQAAAAAAAADw/w4AAQAAAAAAAADw/w8AAQAAAAAAAADw/xAAAQAAAAAAAADw/xEAAQAAAAAAAADw/xIAAQAAAAAAAADw/xMAAQAAAAAAAADw/xQAAQAAAAAAAADw/xUAAQAAAAAAAADw/xYAAQAAAAAAAADw/xcAAQAAAAAAAADw/xgAAQAAAAAAAADw/xkAAQAAAAAAAADw/xoAAQAAAAAAAADw/xsAAQAAAAAAAADw/xwAAQAAAAAAAADw/x0AAQAAAAAAAADw/x4AAQAAAAAAAADw/x8AAQAAAAAAAADw/yAAAQAAAAAAAADw/yEAAQAAAAAAAADw/yIAAQAAAAAAAADw/yMAAQAAAAAAAADw/yQAAQAAAAAAAADw/yUAAQAAAAAAAADw/yYAAQAAAAAAAADw/ycAAQAAAAAAAADw/ygAAQAAAAAAAADw/ykAAQAAAAAAAADx/9b/AQAAAAAAAADx/9f/AQAAAAAAAADx/9j/AQAAAAAAAADx/9n/AQAAAAAAAADx/9r/AQAAAAAAAADx/9v/AQAAAAAAAADx/9z/AQAAAAAAAADx/93/AQAAAAAAAADx/97/AQAAAAAAAADx/9//AQAAAAAAAADx/+D/AQAAAAAAAADx/+H/AQAAAAAAAADx/+L/AQAAAAAAAADx/+P/AQAAAAAAAADx/+T/AQAAAAAAAADx/+X/AQAAAAAAAADx/+b/AQAAAAAAAADx/+f/AQAAAAAAAADx/+j/AQAAAAAAAADx/+n/AQAAAAAAAADx/+r/AQAAAAAAAADx/+v/AQAAAAAAAADx/+z/AQAAAAAAAADx/+3/AQAAAAAAAADx/+7/AQAAAAAAAADx/+//AQAAAAAAAADx//D/AQAAAAAAAADx//H/AQAAAAAAAADx//L/AQAAAAAAAADx//P/AQAAAAAAAADx//T/AQAAAAAAAADx//X/AQAAAAAAAADx//b/AQAAAAAAAADx//f/AQAAAAAAAADx//j/AQAAAAAAAADx//n/AQAAAAAAAADx//r/AQAAAAAAAADx//v/AQAAAAAAAADx//z/AQAAAAAAAADx//3/AQAAAAAAAADx//7/AQAAAAAAAADx////AQAAAAAAAADx/wAAAQAAAAAAAADx/wEAAQAAAAAAAADx/wIAAQAAAAAAAADx/wMAAQAAAAAAAADx/wQAAQAAAAAAAADx/wUAAQAAAAAAAADx/wYAAQAAAAAAAADx/wcAAQAAAAAAAADx/wgAAQAAAAAAAADx/wkAAQAAAAAAAADx/woAAQAAAAAAAADx/wsAAQAAAAAAAADx/wwAAQAAAAAAAADx/w0AAQAAAAAAAADx/w4AAQAAAAAAAADx/w8AAQAAAAAAAADx/xAAAQAAAAAAAADx/xEAAQAAAAAAAADx/xIAAQAAAAAAAADx/xMAAQAAAAAAAADx/xQAAQAAAAAAAADx/xUAAQAAAAAAAADx/xYAAQAAAAAAAADx/xcAAQAAAAAAAADx/xgAAQAAAAAAAADx/xkAAQAAAAAAAADx/xoAAQAAAAAAAADx/xsAAQAAAAAAAADx/xwAAQAAAAAAAADx/x0AAQAAAAAAAADx/x4AAQAAAAAAAADx/x8AAQAAAAAAAADx/yAAAQAAAAAAAADx/yEAAQAAAAAAAADx/yIAAQAAAAAAAADx/yMAAQAAAAAAAADx/yQAAQAAAAAAAADx/yUAAQAAAAAAAADx/yYAAQAAAAAAAADx/ycAAQAAAAAAAADx/ygAAQAAAAAAAADx/ykAAQAAAAAAAADy/9b/AQAAAAAAAADy/9f/AQAAAAAAAADy/9j/AQAAAAAAAADy/9n/AQAAAAAAAADy/9r/AQAAAAAAAADy/9v/AQAAAAAAAADy/9z/AQAAAAAAAADy/93/AQAAAAAAAADy/97/AQAAAAAAAADy/9//AQAAAAAAAADy/+D/AQAAAAAAAADy/+H/AQAAAAAAAADy/+L/AQAAAAAAAADy/+P/AQAAAAAAAADy/+T/AQAAAAAAAADy/+X/AQAAAAAAAADy/+b/AQAAAAAAAADy/+f/AQAAAAAAAADy/+j/AQAAAAAAAADy/+n/AQAAAAAAAADy/+r/AQAAAAAAAADy/+v/AQAAAAAAAADy/+z/AQAAAAAAAADy/+3/AQAAAAAAAADy/+7/AQAAAAAAAADy/+//AQAAAAAAAADy//D/AQAAAAAAAADy//H/AQAAAAAAAADy//L/AQAAAAAAAADy//P/AQAAAAAAAADy//T/AQAAAAAAAADy//X/AQAAAAAAAADy//b/AQAAAAAAAADy//f/AQAAAAAAAADy//j/AQAAAAAAAADy//n/AQAAAAAAAADy//r/AQAAAAAAAADy//v/AQAAAAAAAADy//z/AQAAAAAAAADy//3/AQAAAAAAAADy//7/AQAAAAAAAADy////AQAAAAAAAADy/wAAAQAAAAAAAADy/wEAAQAAAAAAAADy/wIAAQAAAAAAAADy/wMAAQAAAAAAAADy/wQAAQAAAAAAAADy/wUAAQAAAAAAAADy/wYAAQAAAAAAAADy/wcAAQAAAAAAAADy/wgAAQAAAAAAAADy/wkAAQAAAAAAAADy/woAAQAAAAAAAADy/wsAAQAAAAAAAADy/wwAAQAAAAAAAADy/w0AAQAAAAAAAADy/w4AAQAAAAAAAADy/w8AAQAAAAAAAADy/xAAAQAAAAAAAADy/xEAAQAAAAAAAADy/xIAAQAAAAAAAADy/xMAAQAAAAAAAADy/xQAAQAAAAAAAADy/xUAAQAAAAAAAADy/xYAAQAAAAAAAADy/xcAAQAAAAAAAADy/xgAAQAAAAAAAADy/xkAAQAAAAAAAADy/xoAAQAAAAAAAADy/xsAAQAAAAAAAADy/xwAAQAAAAAAAADy/x0AAQAAAAAAAADy/x4AAQAAAAAAAADy/x8AAQAAAAAAAADy/yAAAQAAAAAAAADy/yEAAQAAAAAAAADy/yIAAQAAAAAAAADy/yMAAQAAAAAAAADy/yQAAQAAAAAAAADy/yUAAQAAAAAAAADy/yYAAQAAAAAAAADy/ycAAQAAAAAAAADy/ygAAQAAAAAAAADy/ykAAQAAAAAAAADz/+X/AQAAAAAAAADz/+b/AQAAAAAAAADz/+f/AQAAAAAAAADz/+j/AQAAAAAAAADz/+n/AQAAAAAAAADz/+r/AQAAAAAAAADz/+v/AQAAAAAAAADz/+z/AQAAAAAAAADz/+3/AQAAAAAAAADz/+7/AQAAAAAAAADz/+//AQAAAAAAAADz//D/AQAAAAAAAADz//H/AQAAAAAAAADz//L/AQAAAAAAAADz//P/AQAAAAAAAADz//T/AQAAAAAAAADz//X/AQAAAAAAAADz//b/AQAAAAAAAADz//f/AQAAAAAAAADz//j/AQAAAAAAAADz//n/AQAAAAAAAADz//r/AQAAAAAAAADz//v/AQAAAAAAAADz//z/AQAAAAAAAADz//3/AQAAAAAAAADz//7/AQAAAAAAAADz////AQAAAAAAAADz/wAAAQAAAAAAAADz/wEAAQAAAAAAAADz/wIAAQAAAAAAAADz/wMAAQAAAAAAAADz/wQAAQAAAAAAAADz/wUAAQAAAAAAAADz/wYAAQAAAAAAAADz/wcAAQAAAAAAAADz/wgAAQAAAAAAAADz/wkAAQAAAAAAAADz/woAAQAAAAAAAADz/wsAAQAAAAAAAADz/wwAAQAAAAAAAADz/w0AAQAAAAAAAADz/w4AAQAAAAAAAADz/w8AAQAAAAAAAADz/xAAAQAAAAAAAADz/xEAAQAAAAAAAADz/xIAAQAAAAAAAADz/xMAAQAAAAAAAADz/xQAAQAAAAAAAADz/xUAAQAAAAAAAADz/xYAAQAAAAAAAADz/xcAAQAAAAAAAADz/xgAAQAAAAAAAADz/xkAAQAAAAAAAADz/xoAAQAAAAAAAADz/xsAAQAAAAAAAADz/xwAAQAAAAAAAADz/x0AAQAAAAAAAADz/x4AAQAAAAAAAADz/x8AAQAAAAAAAADz/yAAAQAAAAAAAADz/yEAAQAAAAAAAADz/yIAAQAAAAAAAADz/yMAAQAAAAAAAADz/yQAAQAAAAAAAADz/yUAAQAAAAAAAADz/yYAAQAAAAAAAADz/ycAAQAAAAAAAADz/ygAAQAAAAAAAADz/ykAAQAAAAAAAAAPANb/AQAAAAAAAAAPANf/AQAAAAAAAAAPANj/AQAAAAAAAAAPANn/AQAAAAAAAAAPANr/AQAAAAAAAAAPANv/AQAAAAAAAAAPANz/AQAAAAAAAAAPAN3/AQAAAAAAAAAPAN7/AQAAAAAAAAAPAN//AQAAAAAAAAAPAOD/AQAAAAAAAAAPAOH/AQAAAAAAAAAQANb/AQAAAAAAAAAQANf/AQAAAAAAAAAQANj/AQAAAAAAAAAQANn/AQAAAAAAAAAQANr/AQAAAAAAAAAQANv/AQAAAAAAAAAQANz/AQAAAAAAAAAQAN3/AQAAAAAAAAAQAN7/AQAAAAAAAAAQAN//AQAAAAAAAAAQAOD/AQAAAAAAAAAQAOH/AQAAAAAAAAARANb/AQAAAAAAAAARANf/AQAAAAAAAAARANj/AQAAAAAAAAARANn/AQAAAAAAAAARANr/AQAAAAAAAAARANv/AQAAAAAAAAARANz/AQAAAAAAAAARAN3/AQAAAAAAAAARAN7/AQAAAAAAAAARAN//AQAAAAAAAAARAOD/AQAAAAAAAAARAOH/AQAAAAAAAAARACIAAQAAAAAAAAARACMAAQAAAAAAAAARACQAAQAAAAAAAAARACUAAQAAAAAAAAARACYAAQAAAAAAAAARACcAAQAAAAAAAAARACgAAQAAAAAAAAD0/xgAAQAAAAAAAAD0/xcAAQAAAAAAAAD0/xYAAQAAAAAAAAD0/xUAAQAAAAAAAAD0/xQAAQAAAAAAAAD0/xMAAQAAAAAAAAD0/xIAAQAAAAAAAAD0/xEAAQAAAAAAAAD0/xAAAQAAAAAAAAD0/w8AAQADAAAAAAD0/w4AAQAAAAAAAAD0/w0AAQADAAAAAAD0/wwAAQAAAAAAAAD0/wsAAQAAAAAAAAD0/woAAQAAAAAAAAD0/wkAAQADAAAAAAD0/wgAAQAAAAAAAAD0/wcAAQAAAAAAAAD0/wYAAQAAAAAAAAD0/wUAAQAAAAAAAAD0/wQAAQAAAAAAAAD0/wMAAQAAAAAAAAD0/wIAAQAAAAAAAAD0/wEAAQAAAAAAAAD0/wAAAQAAAAAAAAD0////AQAAAAAAAAD0//7/AQAAAAAAAAD0//3/AQAAAAAAAAD0//z/AQAAAAAAAAD0//v/AQAAAAAAAAD0//r/AQAAAAAAAAD0//n/AQAAAAAAAAD0//j/AQAAAAAAAAD0//f/AQAAAAAAAAD0//b/AQAAAAAAAAD0//X/AQAAAAAAAAD0//T/AQAAAAAAAAD0//P/AQAAAAAAAAD0//L/AQAAAAAAAAD0//H/AQAAAAAAAAD0//D/AQAAAAAAAAD0/+//AQAAAAAAAAD0/+7/AQAAAAAAAAD0/+3/AQAAAAAAAAD0/+z/AQAAAAAAAAD0/+v/AQAAAAAAAAD1/+r/AQAAAAAAAAD1/+n/AQAAAAAAAAD2/+j/AQAAAAAAAAD2/+f/AQAAAAAAAAD3/+b/AQAAAAAAAAD3/+X/AQAAAAAAAAD4/+b/AQAAAAAAAAD4/+X/AQAAAAAAAAD5/+b/AQAAAAAAAAD5/+X/AQAAAAAAAAD6/+b/AQAAAAAAAAD6/+X/AQAAAAAAAAD7/+b/AQAAAAAAAAD7/+X/AQAAAAAAAAD8/+b/AQADAAAAAAD8/+X/AQAAAAAAAAD9/+b/AQAAAAAAAAD9/+X/AQAAAAAAAAD+/+b/AQADAAAAAAD+/+X/AQAAAAAAAAD//+b/AQADAAAAAAD//+X/AQAAAAAAAAAAAOb/AQADAAAAAAAAAOX/AQAAAAAAAAABAOb/AQAAAAAAAAABAOX/AQAAAAAAAAACAOb/AQADAAAAAAACAOX/AQADAAAAAAADAOb/AQADAAAAAAADAOX/AQADAAAAAAAEAOb/AQADAAAAAAAEAOX/AQADAAAAAAAFAOb/AQADAAAAAAAFAOX/AQAAAAAAAAAGAOb/AQAAAAAAAAAGAOX/AQAAAAAAAAAHAOb/AQAAAAAAAAAHAOX/AQAAAAAAAAAIAOb/AQAAAAAAAAAIAOX/AQAAAAAAAAAJAOb/AQAAAAAAAAAJAOX/AQAAAAAAAAAKAOb/AQAAAAAAAAAKAOX/AQAAAAAAAAALAOb/AQAAAAAAAAALAOX/AQAAAAAAAAAMAOb/AQAAAAAAAAAMAOX/AQAAAAAAAAALAOf/AQAAAAAAAAALAOj/AQAAAAAAAAAKAOf/AQAAAAAAAAAKAOj/AQAAAAAAAAAJAOf/AQAAAAAAAAAJAOj/AQAAAAAAAAAIAOf/AQAAAAAAAAAIAOj/AQAAAAAAAAAHAOf/AQAAAAAAAAAHAOj/AQAAAAAAAAAGAOf/AQAAAAAAAAAGAOj/AQADAAAAAAAFAOf/AQADAAAAAAAFAOj/AQADAAAAAAAEAOf/AQADAAAAAAAEAOj/AQADAAAAAAADAOf/AQADAAAAAAADAOj/AQADAAAAAAACAOf/AQADAAAAAAACAOj/AQADAAAAAAABAOf/AQADAAAAAAABAOj/AQADAAAAAAAAAOf/AQADAAAAAAAAAOj/AQADAAAAAAD//+f/AQADAAAAAAD//+j/AQADAAAAAAD+/+f/AQADAAAAAAD+/+j/AQADAAAAAAD9/+f/AQADAAAAAAD9/+j/AQADAAAAAAD8/+f/AQADAAAAAAD8/+j/AQADAAAAAAD7/+f/AQADAAAAAAD7/+j/AQADAAAAAAD6/+f/AQADAAAAAAD6/+j/AQADAAAAAAD5/+f/AQADAAAAAAD5/+j/AQADAAAAAAD4/+f/AQADAAAAAAD4/+j/AQADAAAAAAD3/+f/AQAAAAAAAAD3/+j/AQAAAAAAAAD2/+n/AQAAAAAAAAD2/+r/AQAAAAAAAAD3/+r/AQADAAAAAAD3/+n/AQADAAAAAAD4/+r/AQADAAAAAAD4/+n/AQADAAAAAAD5/+r/AQADAAAAAAD5/+n/AQADAAAAAAD6/+r/AQADAAAAAAD6/+n/AQADAAAAAAD7/+r/AQADAAAAAAD7/+n/AQADAAAAAAD8/+r/AQADAAAAAAD8/+n/AQADAAAAAAD9/+r/AQADAAAAAAD9/+n/AQADAAAAAAD+/+r/AQADAAAAAAD+/+n/AQADAAAAAAD//+r/AQADAAAAAAD//+n/AQADAAAAAAAAAOr/AQADAAAAAAAAAOn/AQADAAAAAAABAOr/AQADAAAAAAABAOn/AQADAAAAAAACAOr/AQADAAAAAAACAOn/AQADAAAAAAADAOr/AQADAAAAAAADAOn/AQADAAAAAAAEAOr/AQADAAAAAAAEAOn/AQADAAAAAAAFAOr/AQADAAAAAAAFAOn/AQADAAAAAAAGAOr/AQADAAAAAAAGAOn/AQADAAAAAAAHAOr/AQADAAAAAAAHAOn/AQAAAAAAAAAIAOr/AQAAAAAAAAAIAOn/AQAAAAAAAAAJAOr/AQAAAAAAAAAJAOn/AQAAAAAAAAAKAOr/AQAAAAAAAAAKAOn/AQAAAAAAAAALAOr/AQAAAAAAAAALAOn/AQAAAAAAAAAMAOj/AQAAAAAAAAAMAOf/AQAAAAAAAAAMAOn/AQAAAAAAAAAMAOr/AQAAAAAAAAAMAOv/AQAAAAAAAAAMAOz/AQAAAAAAAAAMAO3/AQAAAAAAAAAMAO7/AQAAAAAAAAAMAO//AQAAAAAAAAAMAPD/AQAAAAAAAAAMAPH/AQAAAAAAAAAMAPL/AQAAAAAAAAAMAPP/AQAAAAAAAAAMAPT/AQAAAAAAAAAMAPX/AQAAAAAAAAAMAPb/AQAAAAAAAAAMAPf/AQAAAAAAAAAMAPj/AQAAAAAAAAAMAPn/AQAAAAAAAAAMAPr/AQAAAAAAAAAMAPv/AQAAAAAAAAAMAPz/AQAAAAAAAAAMAP3/AQAAAAAAAAAMAP7/AQAAAAAAAAAMAP//AQAAAAAAAAAMAAAAAQAAAAAAAAAMAAEAAQAAAAAAAAAMAAIAAQAAAAAAAAAMAAMAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAUAAQAAAAAAAAAMAAYAAQAAAAAAAAAMAAcAAQAAAAAAAAAMAAgAAQAAAAAAAAAMAAkAAQAAAAAAAAAMAAoAAQAAAAAAAAAMAAsAAQAAAAAAAAAMAAwAAQAAAAAAAAAMAA0AAQAAAAAAAAAMAA4AAQAAAAAAAAAMAA8AAQAAAAAAAAAMABAAAQAAAAAAAAAMABEAAQAAAAAAAAAMABIAAQAAAAAAAAAMABMAAQAAAAAAAAAMABQAAQAAAAAAAAAMABUAAQAAAAAAAAAMABYAAQAAAAAAAAALABcAAQAAAAAAAAALABgAAQAAAAAAAAAKABcAAQAAAAAAAAAKABgAAQAAAAAAAAAJABcAAQAAAAAAAAAJABgAAQAAAAAAAAAIABcAAQAAAAAAAAAIABgAAQAAAAAAAAAHABcAAQAAAAAAAAAHABgAAQAAAAAAAAAGABcAAQAAAAAAAAAGABgAAQAAAAAAAAAFABcAAQAAAAAAAAAFABgAAQAAAAAAAAAEABcAAQAAAAAAAAAEABgAAQAAAAAAAAADABcAAQAAAAAAAAADABgAAQAAAAAAAAACABcAAQAAAAAAAAACABgAAQAAAAAAAAABABcAAQAAAAAAAAABABgAAQAAAAAAAAAAABcAAQAAAAAAAAAAABgAAQAAAAAAAAD//xcAAQAAAAAAAAD//xgAAQAAAAAAAAD+/xcAAQAAAAAAAAD+/xgAAQAAAAAAAAD9/xcAAQAAAAAAAAD9/xgAAQAAAAAAAAD8/xcAAQAAAAAAAAD8/xgAAQAAAAAAAAD7/xcAAQAAAAAAAAD7/xgAAQAAAAAAAAD6/xcAAQAAAAAAAAD6/xgAAQAAAAAAAAD5/xcAAQAAAAAAAAD5/xgAAQAAAAAAAAD4/xcAAQAAAAAAAAD4/xgAAQAAAAAAAAD3/xcAAQAAAAAAAAD3/xgAAQAAAAAAAAD2/xcAAQAAAAAAAAD2/xgAAQAAAAAAAAD1/xcAAQAAAAAAAAD1/xgAAQAAAAAAAAAMABgAAQAAAAAAAAAMABcAAQAAAAAAAAD2/+X/AQAAAAAAAAD2/+b/AQAAAAAAAAD1/+X/AQAAAAAAAAD1/+b/AQAAAAAAAAD0/+X/AQAAAAAAAAD0/+b/AQAAAAAAAAD0/+f/AQAAAAAAAAD0/+j/AQAAAAAAAAD0/+n/AQAAAAAAAAD1/+j/AQAAAAAAAAD1/+f/AQAAAAAAAAD0/+r/AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_desa1")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_bshrb")
+
+[node name="Wizard" parent="." instance=ExtResource("3_vt06f")]
+
+[node name="Wizard2" parent="." instance=ExtResource("3_vt06f")]
+position = Vector2(-88, 120)
+
+[node name="Cow" parent="." instance=ExtResource("3_v4yyn")]
+position = Vector2(40, 64)
+
+[node name="TownCenter" parent="." node_paths=PackedStringArray("sceneManager") instance=ExtResource("9_qtj1u")]
+position = Vector2(-240, -240)
+sceneManager = NodePath("..")
+
+[node name="EnvContainer" type="Node" parent="."]
+
+[node name="PalmTree" parent="EnvContainer" instance=ExtResource("6_ryche")]
+position = Vector2(-880, -120)
+
+[node name="PalmTree2" parent="EnvContainer" instance=ExtResource("6_ryche")]
+position = Vector2(-800, 0)
+
+[node name="PalmTree3" parent="EnvContainer" instance=ExtResource("6_ryche")]
+position = Vector2(-880, 40)
+
+[node name="PalmTree4" parent="EnvContainer" instance=ExtResource("6_ryche")]
+position = Vector2(-960, 0)
+
+[node name="PalmTree5" parent="EnvContainer" instance=ExtResource("6_ryche")]
+position = Vector2(-960, -160)
+
+[node name="PalmTree6" parent="EnvContainer" instance=ExtResource("6_ryche")]
+position = Vector2(-800, -160)
+
+[node name="PalmTree7" parent="EnvContainer" instance=ExtResource("6_ryche")]
+position = Vector2(-720, -120)
+
+[node name="Rock" parent="EnvContainer" instance=ExtResource("11_k2iba")]
+position = Vector2(-960, 240)
+
+[node name="Rock2" parent="EnvContainer" instance=ExtResource("11_k2iba")]
+position = Vector2(-1040, 200)
+
+[node name="Rock3" parent="EnvContainer" instance=ExtResource("11_k2iba")]
+position = Vector2(-960, 164)
+
+[node name="Rock4" parent="EnvContainer" instance=ExtResource("11_k2iba")]
+position = Vector2(-1035, 280)
+
+[node name="Rock5" parent="EnvContainer" instance=ExtResource("11_k2iba")]
+position = Vector2(-1120, 236)
+
+[node name="FruitTree" parent="EnvContainer" instance=ExtResource("12_k8lcy")]
+position = Vector2(568, 120)
+
+[node name="FruitTree2" parent="EnvContainer" instance=ExtResource("12_k8lcy")]
+position = Vector2(640, 80)
+
+[node name="FruitTree3" parent="EnvContainer" instance=ExtResource("12_k8lcy")]
+position = Vector2(560, 40)
+
+[node name="BuildingSystem" type="Node" parent="." node_paths=PackedStringArray("GUI", "Cursor")]
+script = ExtResource("18_r6884")
+GUI = NodePath("../GUI/Control")
+Cursor = NodePath("../Cursor")
+
+[node name="Wizard3" parent="." instance=ExtResource("3_vt06f")]
+position = Vector2(80, -128)
+
+[connection signal="pressed" from="GUI/Control/TopPanel/Hammer/TextureButton" to="BuildingSystem" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element1/Element1" to="BuildingSystem" method="_on_element_1_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element2/Element2" to="BuildingSystem" method="_on_element_2_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element3/Element3" to="BuildingSystem" method="_on_element_3_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element4/Element4" to="BuildingSystem" method="_on_element_4_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element5/Element5" to="BuildingSystem" method="_on_element_5_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element6/Element6" to="BuildingSystem" method="_on_element_6_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element7/Element7" to="BuildingSystem" method="_on_element_7_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element8/Element8" to="BuildingSystem" method="_on_element_8_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element9/Element9" to="BuildingSystem" method="_on_element_9_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Panel/ScrollContainer/ElementContainer/Element10/Element10" to="BuildingSystem" method="_on_element_10_pressed"]
+[connection signal="pressed" from="GUI/Control/BuildPanel/Close" to="BuildingSystem" method="_on_close_pressed"]
+[connection signal="body_entered" from="Cursor" to="." method="_on_cursor_body_entered"]
+[connection signal="body_exited" from="Cursor" to="." method="_on_cursor_body_exited"]

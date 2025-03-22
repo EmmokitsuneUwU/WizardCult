@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://8w6qfhe8wb12"]
+
+[ext_resource type="Script" uid="uid://dac76lg30cbt7" path="res://Scripts/Wizard.gd" id="1_afiip"]
+[ext_resource type="Texture2D" uid="uid://b6qtm6asuwr4e" path="res://Assets/Sprites/Mage.png" id="2_7qmsj"]
+[ext_resource type="Texture2D" uid="uid://by2p6ukl3c3gl" path="res://Assets/SelectionIndicator.png" id="3_s264u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv3c3"]
+size = Vector2(42, 80)
+
+[node name="Wizard" type="CharacterBody2D" groups=["Unit", "UserMovable"]]
+motion_mode = 1
+script = ExtResource("1_afiip")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+texture_filter = 1
+position = Vector2(1.90735e-06, 0)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_7qmsj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_uv3c3")
+
+[node name="SelectionIndicator" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+texture_filter = 1
+position = Vector2(-1, 0)
+scale = Vector2(2, 3)
+texture = ExtResource("3_s264u")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="PickUpTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="timeout" from="PickUpTimer" to="." method="_on_pick_up_timer_timeout"]

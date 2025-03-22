@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dd0kl451aaix6"]
+
+[ext_resource type="FontFile" uid="uid://bfew75ukx7ftj" path="res://Assets/KitsuneMage.ttf" id="1_20djf"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_48wtj"]
+color = Color(0.422371, 0.422371, 0.422371, 1)
+thickness = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_diiu7"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_color = Color(0.45, 0.45, 0.45, 1)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48wtj"]
+bg_color = Color(0.448067, 0.448067, 0.448067, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_color = Color(0.371622, 0.371622, 0.371622, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cngrm"]
+bg_color = Color(0.798975, 1.8049e-06, 5.77569e-07, 1)
+
+[resource]
+HBoxContainer/constants/separation = 10
+HSeparator/styles/separator = SubResource("StyleBoxLine_48wtj")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.490196)
+Label/fonts/font = ExtResource("1_20djf")
+Panel/styles/panel = SubResource("StyleBoxFlat_diiu7")
+ProgressBar/fonts/font = ExtResource("1_20djf")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_48wtj")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_cngrm")

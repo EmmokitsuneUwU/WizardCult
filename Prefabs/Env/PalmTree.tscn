@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://catdiv3qqt8kd"]
+
+[ext_resource type="Script" uid="uid://vgx8g63pa7xl" path="res://Scripts/Tree.gd" id="1_2o01r"]
+[ext_resource type="Texture2D" uid="uid://vspt47la8vvp" path="res://Assets/Sprites/palmTree.png" id="1_v5dl1"]
+[ext_resource type="Texture2D" uid="uid://by2p6ukl3c3gl" path="res://Assets/SelectionIndicator.png" id="3_lulp2"]
+[ext_resource type="Texture2D" uid="uid://dcttvpyb4dudx" path="res://Assets/Sprites/stoneRunOut.png" id="4_aono2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2o01r"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lulp2"]
+size = Vector2(35, 35)
+
+[node name="PalmTree" type="StaticBody2D" groups=["Structure", "Tree"]]
+script = ExtResource("1_2o01r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -48)
+scale = Vector2(2, 2)
+texture = ExtResource("1_v5dl1")
+
+[node name="WoodRunOut" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -8)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("4_aono2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2o01r")
+
+[node name="SelectionIndicator" type="Sprite2D" parent="." groups=["Structure"]]
+visible = false
+texture_filter = 1
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+texture = ExtResource("3_lulp2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lulp2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
